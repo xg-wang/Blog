@@ -71,3 +71,18 @@ deploy:
   type: git
   repository: https://github.com/xg-wang/xg-wang.github.io.git
   branch: master
+
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Social links
+social:
+  GitHub: https://github.com/xg-wang
+  Twitter: https://twitter.com/xinganwang
+  Weibo: http://weibo.com/wangxingan
+
+# MathJax Support
+mathjax:
+  enable: true
+  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
