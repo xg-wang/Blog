@@ -86,3 +86,12 @@ social:
 mathjax:
   enable: true
   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+# Disqus
+disqus_shortname: xg-wang
+
+# Google Analytics
+google_analytics: UA-89386915-1
+
+# JiaThis 分享服务
+jiathis: true
