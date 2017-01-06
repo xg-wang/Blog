@@ -1,7 +1,7 @@
 ---
 title: '[JavaScript30 笔记] 01-JavaScript Drum Kit'
 date: 2017-01-05 11:28:35
-tags: JavaScript30 JavaScript30
+tags: [JavaScript30, JavaScript]
 ---
 
 # 写在系列开篇

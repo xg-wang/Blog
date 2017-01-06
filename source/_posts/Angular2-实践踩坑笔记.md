@@ -1,7 +1,7 @@
 ---
 title: Angular2 实践踩坑笔记
 date: 2016-12-21 21:14:35
-tags: Angular
+tags: [Angular]
 ---
 
 # Template event emission
