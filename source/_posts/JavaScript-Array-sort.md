@@ -1,7 +1,7 @@
 ---
 title: JavaScript Array sort()
 date: 2016-12-11 18:46:39
-tags:
+tags: JavaScript
 ---
 
 今天在 Leetcode 刷题踩了一个 JS 的小坑，记录一下。
