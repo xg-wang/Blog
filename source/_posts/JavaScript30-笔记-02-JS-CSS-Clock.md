@@ -19,9 +19,10 @@ tags: [JavaScript30, JavaScript]
 3. 在转动角度归零(90deg)时特殊处理 transition。
 
 ## 最终效果
-![demo](JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
+![Demo](JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
 
-> [online demo](https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock)
+> - [Demo](https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock)
+> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/02%20-%20JS%20%2B%20CSS%20Clock/index.html)
 
 # Things learned
 ## CSS tranform

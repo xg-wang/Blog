@@ -17,6 +17,9 @@ tags: [JavaScript30, JavaScript]
 2. 播放音频前对按键 dom 元素高亮；
 3. 对所有按键 dom 元素添加监听器，在 transition 结束后恢复原先样式。
 
+> - [Demo](https://xg-wang.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/)
+> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index.html)
+
 # Things learned
 ## data-*
 通过 data-* (这里是data-key) 对 dom 元素进行标识并与数据对应起来。这个小技巧在面试 LinkedIn 的前端实习时候也被考到了。
