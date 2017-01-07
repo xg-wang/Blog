@@ -20,6 +20,7 @@ tags: [JavaScript30, JavaScript]
 
 ## 最终效果
 ![demo](JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
+
 > [online demo](https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock)
 
 # Things learned
