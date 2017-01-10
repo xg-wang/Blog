@@ -37,8 +37,8 @@ tags:
 
 虽然 Sass/Less 中也有变量，但其是在编译期完成绑定，原生 CSS 变量可以在运行时改变，功能更强大。
 
-## <input>
-> [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) The HTML <input> element is used to create interactive controls for web-based forms in order to accept data from the user. How an <input> works varies considerably depending on the value of its type attribute.
+## `<input>` tag
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) The HTML `<input>` element is used to create interactive controls for web-based forms in order to accept data from the user. How an `<input>` works varies considerably depending on the value of its type attribute.
 
 `<input>` 标签的基本作用是进行用户交互输入数据，根据 "type" 属性制定输入类型，种类非常丰富：
 - type=button: link, menuitem, menuitemcheckbox, menuitemradio, radio, switch, tab
