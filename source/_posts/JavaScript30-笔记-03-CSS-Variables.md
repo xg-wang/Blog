@@ -4,8 +4,17 @@ date: 2017-01-09 23:31:15
 tags:
 ---
 
+# 写在系列开篇
+在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的[JavaScript30](https://JavaScript30.com)这个项目后决心好好实践一下 Vanilla JavaScript。
+
+对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 blog 里记录过程、想法和相关资料。源码放在我的 [Github](https://github.com/xg-wang/JavaScript30)上，demo 通过 Github Pages 部署，点击[这里](https://xg-wang.github.io/JavaScript30/)或 Github 的 readme 中连接可以访问。
+
 # Objective
 利用 CSS Variable 和 JS 进行样式属性的控制。
+![Demo](JavaScript30-笔记-03-CSS-Variables/js30-03.gif)
+
+> - [Demo](https://xg-wang.github.io/JavaScript30/03%20-%20CSS%20Variables/)
+> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/03%20-%20CSS%20Variables/index.html)
 
 # Steps
 ## CSS 部分
@@ -15,12 +24,6 @@ tags:
 ## JS 部分
 1. 对每个 `type` 类型的 `input` 标签添加监听器，触发事件有 `moutsemove`, `change`；
 2. 更新全局的 CSS 属性： `document.documentElement.style.setProperty()`。
-
-## 最终效果
-![Demo](JavaScript30-笔记-03-CSS-Variables/js30-03.gif)
-
-> - [Demo](https://xg-wang.github.io/JavaScript30/03%20-%20CSS%20Variables/)
-> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/03%20-%20CSS%20Variables/index.html)
 
 # Things learned
 ## CSS Variable

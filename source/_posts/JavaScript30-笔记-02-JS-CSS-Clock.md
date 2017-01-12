@@ -4,8 +4,17 @@ date: 2017-01-06 23:29:49
 tags: [JavaScript30, JavaScript]
 ---
 
+# 写在系列开篇
+在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的[JavaScript30](https://JavaScript30.com)这个项目后决心好好实践一下 Vanilla JavaScript。
+
+对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 blog 里记录过程、想法和相关资料。源码放在我的 [Github](https://github.com/xg-wang/JavaScript30)上，demo 通过 Github Pages 部署，点击[这里](https://xg-wang.github.io/JavaScript30/)或 Github 的 readme 中连接可以访问。
+
 # Objective
 利用 CSS 和 JS 实现一个时钟界面，每秒更新三个指针的位置。
+![Demo](JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
+
+> - [Demo](https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock)
+> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/02%20-%20JS%20%2B%20CSS%20Clock/index.html)
 
 # Steps
 ## CSS 部分
@@ -17,12 +26,6 @@ tags: [JavaScript30, JavaScript]
 1. 获取 Date 对象得到时间并计算需要转动的角度；
 2. 设置三个指针的 transform 属性为 `rotate(${xxxDegree}deg)`；
 3. 在转动角度归零(90deg)时特殊处理 transition。
-
-## 最终效果
-![Demo](JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
-
-> - [Demo](https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock)
-> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/02%20-%20JS%20%2B%20CSS%20Clock/index.html)
 
 # Things learned
 ## CSS tranform

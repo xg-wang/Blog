@@ -11,14 +11,14 @@ tags: [JavaScript30, JavaScript]
 
 # Objective
 通过预先提供的音频文件和 JavaScript 实现键盘按键打鼓，按下预定的键位后进行高亮并在高亮转换结束后恢复。
+> - [Demo](https://xg-wang.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/)
+> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index.html)
 
 # Steps
 1. 添加全局的监听器，播放按键相应的音频；
 2. 播放音频前对按键 dom 元素高亮；
 3. 对所有按键 dom 元素添加监听器，在 transition 结束后恢复原先样式。
 
-> - [Demo](https://xg-wang.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/)
-> - [Source](https://github.com/xg-wang/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index.html)
 
 # Things learned
 ## data-*
