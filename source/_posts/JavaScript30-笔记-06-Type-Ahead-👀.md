@@ -26,7 +26,18 @@ tags: [JavaScript, JavaScript30]
 ## fetch API
 [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)是一个新引入的api，用于获取资源并返回一个 Promise 对象。fetch 可以直接接受一个 url 字符串，也可以接受一个 [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) 对象。
 
-由于返回的是 Promise，可以使用 `.then()` 来处理返回值。
+由于返回的是 Promise，可以使用 `.then()` 来处理返回值：
+
+```
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+const data = [];
+
+fetch(endpoint)
+  .then(res => res.json())
+  .then(arr => data.push(...arr));
+```
+
+需要注意的是，fetch 不支持 IE 和 Safari，手机上的支持也不好，所以生产环境中使用还要等待一段时间。
 
 ## change vs keyup
 change 发生的时机是输入的 value 改变并 blur， keyup则是键盘按键松开即触发。
