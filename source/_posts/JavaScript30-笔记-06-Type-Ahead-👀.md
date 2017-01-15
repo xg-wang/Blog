@@ -1,7 +1,7 @@
 ---
 title: "[JavaScript30 笔记] 06 - Type Ahead \uD83D\uDC40"
 date: 2017-01-14 22:12:55
-tags:
+tags: [JavaScript, JavaScript30]
 ---
 
 # 写在系列开篇
