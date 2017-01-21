@@ -1,0 +1,773 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,JavaScript30," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5199;&amp;#x5728;&amp;#x7CFB;&amp;#x5217;&amp;#x5F00;&amp;#x7BC7;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x57FA;&amp;#x672C;&amp;#x7684; HTML / CSS / JavaScript &amp;#x4E4B;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x5565; side project &amp;#x5C31;&amp;#x76F4;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JavaScript30 笔记] 08 - Fun with HTML5 Canvas">
+<meta property="og:url" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/index.html">
+<meta property="og:site_name" content="Xingan's Blog">
+<meta property="og:description" content="&amp;#x5199;&amp;#x5728;&amp;#x7CFB;&amp;#x5217;&amp;#x5F00;&amp;#x7BC7;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x57FA;&amp;#x672C;&amp;#x7684; HTML / CSS / JavaScript &amp;#x4E4B;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x5565; side project &amp;#x5C31;&amp;#x76F4;&amp;">
+<meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/237/Canvas_linejoin.png">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/236/Canvas_linecap.png">
+<meta property="og:updated_time" content="2017-01-21T18:23:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JavaScript30 笔记] 08 - Fun with HTML5 Canvas">
+<meta name="twitter:description" content="&amp;#x5199;&amp;#x5728;&amp;#x7CFB;&amp;#x5217;&amp;#x5F00;&amp;#x7BC7;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x57FA;&amp;#x672C;&amp;#x7684; HTML / CSS / JavaScript &amp;#x4E4B;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x5565; side project &amp;#x5C31;&amp;#x76F4;&amp;">
+<meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/"/>
+
+
+
+
+
+  <title> [JavaScript30 笔记] 08 - Fun with HTML5 Canvas | Xingan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-89386915-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Xingan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Xingan Wang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xingan's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xingan's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                [JavaScript30 笔记] 08 - Fun with HTML5 Canvas
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T21:53:06-08:00">
+                2017-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;"><a href="#&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;" class="headerlink" title="&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;"></a>&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;</h1><p>&#x5728;&#x5B66;&#x4E60;&#x4E86;&#x57FA;&#x672C;&#x7684; HTML / CSS / JavaScript &#x4E4B;&#x540E;&#x6CA1;&#x6709;&#x5565; side project &#x5C31;&#x76F4;&#x63A5;&#x5F00;&#x59CB;&#x5B66; Angular &#x505A;&#x9879;&#x76EE;&#x3002;&#x9047;&#x5230;&#x6700;&#x8FD1;&#x5F88;&#x706B;&#x7684;<a href="https://JavaScript30.com" target="_blank" rel="external">JavaScript30</a>&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x540E;&#x51B3;&#x5FC3;&#x597D;&#x597D;&#x5B9E;&#x8DF5;&#x4E00;&#x4E0B; Vanilla JavaScript&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x6311;&#x6218;&#xFF0C;&#x6211;&#x4F1A;&#x81EA;&#x5DF1;&#x5728;&#x770B;&#x8FC7;&#x89C6;&#x9891;&#x4E86;&#x89E3;&#x539F;&#x7406;&#x540E;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E00;&#x904D;&#x5E76;&#x5728; <a href="https://xg-wang.github.io/tags/JavaScript30/">blog</a> &#x91CC;&#x8BB0;&#x5F55;&#x8FC7;&#x7A0B;&#x3001;&#x60F3;&#x6CD5;&#x548C;&#x76F8;&#x5173;&#x8D44;&#x6599;&#x3002;&#x6E90;&#x7801;&#x653E;&#x5728;&#x6211;&#x7684; <a href="https://github.com/xg-wang/JavaScript30" target="_blank" rel="external">Github</a>&#x4E0A;&#xFF0C;demo &#x901A;&#x8FC7; Github Pages &#x90E8;&#x7F72;&#xFF0C;&#x70B9;&#x51FB;<a href="https://xg-wang.github.io/JavaScript30/">&#x8FD9;&#x91CC;</a>&#x6216; Github &#x7684; readme &#x4E2D;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x3002;</p>
+<h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5F69;&#x8679;&#x6548;&#x679C;&#x7684; Canvas &#x753B;&#x7B14;&#x3002;<br><a id="more"></a><br><img src="/2017/01/JavaScript30-&#x7B14;&#x8BB0;-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif" alt="demo"></p>
+<blockquote>
+<ul>
+<li><a href="https://xg-wang.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/">Demo</a></li>
+<li><a href="https://github.com/xg-wang/JavaScript30/blob/master/08%20-%20Fun%20with%20HTML5%20Canvas/index.html" target="_blank" rel="external">Source</a></li>
+</ul>
+</blockquote>
+<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><ol>
+<li>&#x83B7;&#x53D6; canvas &#x4EE5;&#x53CA;&#x5176; context &#x5E76;&#x8BBE;&#x7F6E;&#x521D;&#x59CB;&#x5C5E;&#x6027;&#xFF1B;</li>
+<li>&#x8BBE;&#x7F6E;&#x9700;&#x8981;&#x7684;4&#x4E2A;&#x4E8B;&#x4EF6;(mouseup, mousedown, mouseout, mousemove)&#x7684;&#x76D1;&#x542C;&#x5668;&#xFF1B;</li>
+<li>&#x5728;&#x753B;&#x56FE;&#x51FD;&#x6570;&#x4E2D;&#x8BBE;&#x7F6E; context &#x7684;&#x72B6;&#x6001;&#x5E76;&#x5B8C;&#x6210;&#x753B;&#x56FE;&#x3002;</li>
+</ol>
+<h1 id="Details-and-Things-learned"><a href="#Details-and-Things-learned" class="headerlink" title="Details and Things learned"></a>Details and Things learned</h1><p><code>&lt;canvas&gt;</code> &#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x56FE;&#x50CF;&#x7684;&#x7ED8;&#x5236;&#xFF0C;&#x529F;&#x80FD;&#x5341;&#x5206;&#x5F3A;&#x5927;&#x3002;MDN &#x6709;&#x975E;&#x5E38;&#x597D;&#x7684;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank" rel="external">&#x6559;&#x7A0B;</a>&#xFF0C;&#x4ECA;&#x5929;&#x8FD9;&#x4E2A;&#x5C0F; demo &#x53EA;&#x4F7F;&#x7528;&#x4E86; <code>&lt;canvas&gt;</code> &#x7684;&#x7EBF;&#x6BB5;&#x7ED8;&#x5236;&#x7684;&#x4E00;&#x90E8;&#x5206; API&#x3002;</p>
+<h2 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h2><p>&#x9996;&#x5148;&#x8981;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x4EE5;&#x53CA; context&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const canvas = document.querySelector(&apos;#draw&apos;);</div><div class="line">const ctx = canvas.getContext(&apos;2d&apos;);</div></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981; 2d &#x7684;&#x7ED8;&#x5236;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x7ED8;&#x5236; 3d &#x56FE;&#x5F62;&#xFF0C;&#x53EF;&#x4EE5; <code>getContext(&apos;webgl&apos;)</code>&#x3002;</p>
+<p>&#x7136;&#x540E;&#x8BBE;&#x7F6E;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li><code>ctx.strokeStyle = &apos;hsl(50, 100%, 50%)&apos;;</code> strokeStyle &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E; color, gradient, pattern</li>
+<li><code>ctx.lineJoin = &apos;round&apos;;</code> &#x6307;&#x5B9A;&#x753B;&#x51FA;&#x7684;&#x7EBF;&#x6BB5;&#x5982;&#x4F55;&#x76F8;&#x4EA4;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x9009;&#x9879; <img src="https://mdn.mozillademos.org/files/237/Canvas_linejoin.png" alt="lineJoin"></li>
+<li><code>ctx.lineCap = &apos;round&apos;;</code> &#x6307;&#x5B9A;&#x753B;&#x51FA;&#x7684;&#x7EBF;&#x6BB5;&#x7AEF;&#x70B9;&#x5982;&#x4F55;&#x622A;&#x6B62;&#xFF0C;&#x540C;&#x6837;&#x4E09;&#x79CD;&#x6211;&#x4EEC;&#x9009;&#x62E9; round<br><img src="https://mdn.mozillademos.org/files/236/Canvas_linecap.png" alt="lineCap"></li>
+<li><code>ctx.lineWidth = 10;</code> &#x753B;&#x7EBF;&#x6BB5;&#x7684;&#x5BBD;&#x5EA6;&#xFF0C;in space units&#x3002;</li>
+</ul>
+<p>&#x7A0B;&#x5E8F;&#x76F8;&#x5173;&#x7684;</p>
+<ul>
+<li><code>let isDrawing = false;</code> &#x7528;&#x4E8E;&#x6807;&#x660E;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x7ED8;&#x56FE;&#x72B6;&#x6001;&#xFF0C;&#x5728;&#x9F20;&#x6807;&#x6309;&#x4E0B;&#x677E;&#x5F00;&#x79FB;&#x51FA;&#x7ED8;&#x56FE;&#x533A;&#x65F6;&#x66F4;&#x65B0;&#x3002;</li>
+<li><code>let lastX, lastY;</code> &#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x79FB;&#x52A8;&#x9F20;&#x6807;&#x524D;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x753B;&#x51FA;&#x5149;&#x6ED1;&#x66F2;&#x7EBF;&#x3002;</li>
+<li><code>let hue = 0;</code> &#x4F7F;&#x7528; hsl &#x6765;&#x8868;&#x5F81;&#x989C;&#x8272;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x8FDE;&#x7EED;&#x7684;&#x989C;&#x8272;&#x53D8;&#x5316;&#x3002;</li>
+<li><code>let widthGrow = true;</code> &#x7528;&#x6765;&#x8BA9;&#x5BBD;&#x5EA6;&#x6765;&#x56DE;&#x53D8;&#x5927;&#x53D8;&#x5C0F;&#x3002;</li>
+</ul>
+<h2 id="&#x753B;&#x56FE;&#x8FC7;&#x7A0B;"><a href="#&#x753B;&#x56FE;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x753B;&#x56FE;&#x8FC7;&#x7A0B;"></a>&#x753B;&#x56FE;&#x8FC7;&#x7A0B;</h2><p>canvas &#x53EF;&#x4EE5;&#x753B;&#x51FA;&#x591A;&#x79CD;&#x56FE;&#x5F62;&#x4EE5;&#x53CA; animation &#x7B49;&#x7279;&#x6548;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x82B1;&#x8DEF;&#x5F84;&#x6839;&#x636E;<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes" target="_blank" rel="external">MDN &#x6559;&#x7A0B;</a> &#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x6B65;&#xFF1A;</p>
+<ul>
+<li><code>beginPath()</code> - &#x6E05;&#x7A7A;context&#x7684;&#x6240;&#x6709;&#x72B6;&#x6001;&#x5F00;&#x59CB;&#x65B0;&#x7684;&#x753B;&#x56FE;&#x8FC7;&#x7A0B;&#x3002;</li>
+<li><code>Path methods</code> - &#x64CD;&#x4F5C;&#x753B;&#x56FE;&#x7684;&#x70B9;&#x7684;&#x79FB;&#x52A8;&#xFF0C;&#x5305;&#x62EC; <code>moveTo()</code>, <code>lineTo()</code>, <code>bezierCurveTo()</code>, <code>quadraticCurveTo()</code>&#x7B49;&#x7B49;&#x3002;</li>
+<li><code>closePath()</code> - &#x7ED3;&#x675F; path &#x7684;&#x89C4;&#x5212;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x6307;&#x4EE4;&#x91CD;&#x65B0;&#x5BF9; context &#x8D77;&#x4F5C;&#x7528;&#x3002;</li>
+<li><code>stroke()</code> - &#x753B;&#xFF01;</li>
+<li><code>fill()</code> - &#x586B;&#x5145;&#xFF0C;&#x8FD9;&#x6B21;&#x6CA1;&#x7528;&#x5230;&#x3002;<br>&#x52A0;&#x5165;&#x989C;&#x8272;&#xFF0C;&#x5BBD;&#x5EA6;&#x8C03;&#x6574;&#x540E;&#x7684;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">canvas.addEventListener(&apos;mousemove&apos;, (e) =&gt; {</div><div class="line">  if (!isDrawing) return false;</div><div class="line">  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; </div><div class="line">  ctx.beginPath();</div><div class="line">  ctx.moveTo(lastX, lastY);</div><div class="line">  ctx.lineTo(e.offsetX, e.offsetY);</div><div class="line">  ctx.closePath();</div><div class="line">  ctx.stroke();</div><div class="line">  [lastX, lastY] = [e.offsetX, e.offsetY];</div><div class="line">  hue = (hue + 1) % 360;</div><div class="line">  if (ctx.lineWidth == 66 || ctx.lineWidth == 1) {</div><div class="line">    widthGrow = !widthGrow;</div><div class="line">  }</div><div class="line">  ctx.lineWidth = ctx.lineWidth + (widthGrow ? 1 : -1);</div><div class="line">})</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h2><p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528; <code>[lastX, lastY] = [e.offsetX, e.offsetY];</code>&#xFF0C;&#x6BCF;&#x6B21;&#x753B;&#x56FE;&#x7684;&#x7EBF;&#x4F3C;&#x4E4E;&#x65AD;&#x65AD;&#x7EED;&#x7EED;&#x7684;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x6BCF;&#x6B21;&#x53EA;&#x753B;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x6BB5;&#x7EBF;&#x3002;</p>
+<h2 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h2><p>&#x4EE5;&#x524D;&#x53EA;&#x4F1A; RGBA &#x989C;&#x8272;&#x8868;&#x793A;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A; &#x201C;Hue-saturation-lightness model (HSL)&#x201D; &#x8868;&#x793A;&#x65B9;&#x6CD5;&#x66F4;&#x4E3A;&#x76F4;&#x89C2;&#xFF0C;hue &#x662F; 0 - 360 &#x7684;&#x6570;&#x5B57;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x9971;&#x548C;&#x5EA6;&#x548C;&#x4EAE;&#x5EA6;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x731C;&#x6D4B;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x989C;&#x8272;&#x3002;<a href="http://hslpicker.com/" target="_blank" rel="external">&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;</a>&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x9884;&#x89C8;&#x9009;&#x53D6;&#x7684;&#x989C;&#x8272;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/" rel="next" title="[JavaScript30 笔记] 06 - Type Ahead 👀">
+                <i class="fa fa-chevron-left"></i> [JavaScript30 笔记] 06 - Type Ahead 👀
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xingan Wang" />
+          <p class="site-author-name" itemprop="name">Xingan Wang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在系列开篇"><span class="nav-number">1.</span> <span class="nav-text">写在系列开篇</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Objective"><span class="nav-number">2.</span> <span class="nav-text">Objective</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Steps"><span class="nav-number">3.</span> <span class="nav-text">Steps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Details-and-Things-learned"><span class="nav-number">4.</span> <span class="nav-text">Details and Things learned</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prepare"><span class="nav-number">4.1.</span> <span class="nav-text">Prepare</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画图过程"><span class="nav-number">4.2.</span> <span class="nav-text">画图过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notice"><span class="nav-number">4.3.</span> <span class="nav-text">Notice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSL"><span class="nav-number">4.4.</span> <span class="nav-text">HSL</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xingan Wang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xg-wang';
+      var disqus_identifier = '2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/';
+
+      var disqus_title = "[JavaScript30 笔记] 08 - Fun with HTML5 Canvas";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
