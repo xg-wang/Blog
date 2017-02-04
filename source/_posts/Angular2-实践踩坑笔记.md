@@ -49,3 +49,35 @@ const pagesRoutes: Routes = [
   ],
   //...
 ```
+
+# [Typescript] number from object
+在获取Chartjs的label时，因为label是String类型，我想拿到数字对应的number，于是使用了
+`let label: number = ......label`
+之后发生了label实际上还是String的问题，debug了好久才发现，就连VSCode的tslint都没有发现这个问题。
+
+之后在`ts-node`中试验了一下，
+
+```
+> let a: any = {b: "2"}
+undefined
+> a
+{ b: '2' }
+> let num: number = a.b
+undefined
+> num
+'2'
+```
+
+可见number类型的变量使用any的元素赋值时不会触发错误。
+
+有时间还是应该系统学习一下Typescript，大型工程中还是很有用的。
+
+# `[hidden]` vs `*ngIf`
+对于是否显示某个 DOM 元素或者 Component，可以用默认的 Directive `[hidden]` 或者是 `*ngIf`。
+但两者有一些差别在使用中需要注意：
+
+- hidden 的实现原理是 `display: none;`
+- ngIf 的原理是对 DOM 元素销毁与构造
+
+所以对于初始化时需要 DOM 元素存在的一些部件就需要仔细考虑，
+例如 Chartjs 在构造时需要读取父元素的 Size，如果使用 hidden 来控制显示就会出现没有绘制的情况 - 初始化时父元素的尺寸是 0。
