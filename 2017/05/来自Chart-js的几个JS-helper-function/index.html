@@ -1,0 +1,733 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x517C;&amp;#x804C;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x9762;&amp;#x56E0;&amp;#x4E3A;&amp;#x8981;&amp;#x7528;charts&amp;#x8FDB;&amp;#x884C;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x4EA4;&amp;#x4E92;&amp;#x5F0F;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="来自Chart.js的几个JS helper function">
+<meta property="og:url" content="https://xg-wang.github.io/2017/05/来自Chart-js的几个JS-helper-function/index.html">
+<meta property="og:site_name" content="Xingan's Blog">
+<meta property="og:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x517C;&amp;#x804C;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x9762;&amp;#x56E0;&amp;#x4E3A;&amp;#x8981;&amp;#x7528;charts&amp;#x8FDB;&amp;#x884C;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x4EA4;&amp;#x4E92;&amp;#x5F0F;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#">
+<meta property="og:updated_time" content="2017-05-02T20:59:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="来自Chart.js的几个JS helper function">
+<meta name="twitter:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x517C;&amp;#x804C;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x9762;&amp;#x56E0;&amp;#x4E3A;&amp;#x8981;&amp;#x7528;charts&amp;#x8FDB;&amp;#x884C;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x4EA4;&amp;#x4E92;&amp;#x5F0F;&amp;#x53EF;&amp;#x89C6;&amp;#x5316;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xg-wang.github.io/2017/05/来自Chart-js的几个JS-helper-function/"/>
+
+
+
+
+
+  <title> 来自Chart.js的几个JS helper function | Xingan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-89386915-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Xingan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://xg-wang.github.io/2017/05/来自Chart-js的几个JS-helper-function/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Xingan Wang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xingan's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xingan's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                来自Chart.js的几个JS helper function
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T13:44:47-07:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/来自Chart-js的几个JS-helper-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/来自Chart-js的几个JS-helper-function/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x6700;&#x8FD1;&#x517C;&#x804C;&#x7684;&#x9879;&#x76EE;&#x91CC;&#x9762;&#x56E0;&#x4E3A;&#x8981;&#x7528;charts&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x4EA4;&#x4E92;&#x5F0F;&#x53EF;&#x89C6;&#x5316;&#xFF0C;&#x7528;Chart.js&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x4E5F;&#x8E29;&#x4E86;&#x4E0D;&#x5C11;&#x5751;&#x3002;<br>&#x4E3A;&#x4E86;&#x6539;bug&#x63D0;pr&#x5916;&#x52A0;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;&#x63D0;&#x9AD8;&#x59FF;&#x52BF;&#x6C34;&#x5E73;&#x82B1;&#x4E86;&#x4E00;&#x70B9;&#x65F6;&#x95F4;&#x770B;&#x4E86;&#x4E0B;&#x6E90;&#x7801;&#xFF0C;&#x53D1;&#x73B0;&#x4E00;&#x4E9B;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x7B80;&#x4ECB;&#x7684;<a href="https://gist.github.com/xg-wang/dabd06d4736844d20b17c55e6d47858e" target="_blank" rel="external">helper function</a>&#x5F88;&#x503C;&#x5F97;&#x5B66;&#x4E60;&#x53CA;&#x65E5;&#x5E38;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x4EE3;&#x7801;"><a href="#&#x4EE3;&#x7801;" class="headerlink" title="&#x4EE3;&#x7801;"></a>&#x4EE3;&#x7801;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> helpers = {};</div><div class="line"></div><div class="line"><span class="comment">// -- Basic js utility methods</span></div><div class="line">helpers.each = <span class="function"><span class="keyword">function</span>(<span class="params">loopable, callback, self, reverse</span>) </span>{</div><div class="line">	<span class="comment">// Check to see if null or undefined firstly.</span></div><div class="line">	<span class="keyword">var</span> i, len;</div><div class="line">	<span class="keyword">if</span> (helpers.isArray(loopable)) {</div><div class="line">		len = loopable.length;</div><div class="line">		<span class="keyword">if</span> (reverse) {</div><div class="line">			<span class="keyword">for</span> (i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {</div><div class="line">				callback.call(self, loopable[i], i);</div><div class="line">			}</div><div class="line">		} <span class="keyword">else</span> {</div><div class="line">			<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) {</div><div class="line">				callback.call(self, loopable[i], i);</div><div class="line">			}</div><div class="line">		}</div><div class="line">	} <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> loopable === <span class="string">&apos;object&apos;</span>) {</div><div class="line">		<span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(loopable);</div><div class="line">		len = keys.length;</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) {</div><div class="line">			callback.call(self, loopable[keys[i]], keys[i]);</div><div class="line">		}</div><div class="line">	}</div><div class="line">};</div><div class="line">helpers.clone = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>{</div><div class="line">	<span class="keyword">var</span> objClone = {};</div><div class="line">	helpers.each(obj, <span class="function"><span class="keyword">function</span>(<span class="params">value, key</span>) </span>{</div><div class="line">		<span class="keyword">if</span> (helpers.isArray(value)) {</div><div class="line">			objClone[key] = value.slice(<span class="number">0</span>);</div><div class="line">		} <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&apos;object&apos;</span> &amp;&amp; value !== <span class="literal">null</span>) {</div><div class="line">			objClone[key] = helpers.clone(value);</div><div class="line">		} <span class="keyword">else</span> {</div><div class="line">			objClone[key] = value;</div><div class="line">		}</div><div class="line">	});</div><div class="line">	<span class="keyword">return</span> objClone;</div><div class="line">};</div><div class="line">helpers.extend = <span class="function"><span class="keyword">function</span>(<span class="params">base</span>) </span>{</div><div class="line">	<span class="keyword">var</span> setFn = <span class="function"><span class="keyword">function</span>(<span class="params">value, key</span>) </span>{</div><div class="line">		base[key] = value;</div><div class="line">	};</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>, ilen = <span class="built_in">arguments</span>.length; i &lt; ilen; i++) {</div><div class="line">		helpers.each(<span class="built_in">arguments</span>[i], setFn);</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> base;</div><div class="line">};</div></pre></td></tr></table></figure>
+<h2 id="&#x4F7F;&#x7528;&#x573A;&#x666F;"><a href="#&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>&#x4F7F;&#x7528;&#x573A;&#x666F;</h2><h3 id="helpers-each"><a href="#helpers-each" class="headerlink" title="helpers.each"></a><code>helpers.each</code></h3><p>&#x63D0;&#x4F9B;&#x4E86;&#x6570;&#x7EC4;&#x548C;Object&#x7EDF;&#x4E00;&#x7684;&#x904D;&#x5386;&#x51FD;&#x6570;&#xFF0C;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E3E;&#x4F8B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">helpers.each(scalesOptions.xAxes, <span class="function"><span class="keyword">function</span>(<span class="params">xAxisOptions, index</span>) </span>{</div><div class="line">  xAxisOptions.id = xAxisOptions.id || (<span class="string">&apos;x-axis-&apos;</span> + index);</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<h3 id="helpers-clone"><a href="#helpers-clone" class="headerlink" title="helpers.clone"></a><code>helpers.clone</code></h3><p>&#x63D0;&#x4F9B;&#x4E86;&#x5B8C;&#x6574;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;&#x51FD;&#x6570;&#xFF0C;&#x4E0E;&#x5E38;&#x7528;&#x7684;<code>JSON.parse(JSON.stringify(obj))</code>&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6DF1;&#x62F7;&#x8D1D;&#x5BF9;&#x8C61;&#x5185;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<p>Chart.js&#x5185;&#x90E8;&#x7528;&#x8FD9;&#x4E2A;&#x8FDB;&#x884C;config&#x4E4B;&#x7C7B;&#x7684;merge&#x65F6;&#xFF0C;&#x5148;&#x6DF1;&#x62F7;&#x8D1D;&#x7136;&#x540E;&#x518D;&#x6269;&#x5C55;&#xFF0C;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> base = helpers.clone(_base);</div></pre></td></tr></table></figure></p>
+<h3 id="helpers-extend"><a href="#helpers-extend" class="headerlink" title="helpers.extend"></a><code>helpers.extend</code></h3><p>Chart.js&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;plugin&#x5F62;&#x5F0F;&#xFF0C;&#x672C;&#x8EAB;&#x7684;Chart&#x7684;&#x6838;&#x5FC3;&#x529F;&#x80FD;&#x4E5F;&#x90FD;&#x6709;&#x6269;&#x5C55;&#x7684;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x5173;&#x952E;&#x5C31;&#x5728;extend&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">helpers.extend(Chart.prototype, <span class="comment">/** @lends Chart */</span> {</div><div class="line">  <span class="comment">/**</span></div><div class="line">    * @private</div><div class="line">    */</div><div class="line">  construct: <span class="function"><span class="keyword">function</span>(<span class="params">item, config</span>) </span>{</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  },</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">    * @private</div><div class="line">    */</div><div class="line">  initialize: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  },</div><div class="line">  <span class="comment">// ...</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x76F4;&#x63A5;&#x7ED9;&#x539F;&#x578B;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#xFF0C;&#x5199;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/JavaScript30-笔记-10-Hold-Shift-and-Check-Checkboxes/" rel="next" title="[JavaScript30 笔记] 10 - Hold Shift and Check Checkboxes">
+                <i class="fa fa-chevron-left"></i> [JavaScript30 笔记] 10 - Hold Shift and Check Checkboxes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xingan Wang" />
+          <p class="site-author-name" itemprop="name">Xingan Wang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">2.</span> <span class="nav-text">使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#helpers-each"><span class="nav-number">2.1.</span> <span class="nav-text">helpers.each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#helpers-clone"><span class="nav-number">2.2.</span> <span class="nav-text">helpers.clone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#helpers-extend"><span class="nav-number">2.3.</span> <span class="nav-text">helpers.extend</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xingan Wang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xg-wang';
+      var disqus_identifier = '2017/05/来自Chart-js的几个JS-helper-function/';
+
+      var disqus_title = "来自Chart.js的几个JS helper function";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
