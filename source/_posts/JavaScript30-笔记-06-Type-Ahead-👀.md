@@ -4,11 +4,6 @@ date: 2017-01-14 22:12:55
 tags: [JavaScript, JavaScript30]
 ---
 
-# 写在系列开篇
-在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的[JavaScript30](https://JavaScript30.com)这个项目后决心好好实践一下 Vanilla JavaScript。
-
-对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 [blog](https://xg-wang.github.io/tags/JavaScript30/) 里记录过程、想法和相关资料。源码放在我的 [Github](https://github.com/xg-wang/JavaScript30)上，demo 通过 Github Pages 部署，点击[这里](https://xg-wang.github.io/JavaScript30/)或 Github 的 readme 中连接可以访问。
-
 # Objective
 实现一个 "typeahead"，按下输入字母后搜索缓存数据中匹配的条目并显示。同时高亮搜索的字符串。
 <!-- more -->
@@ -48,19 +43,19 @@ change 发生的时机是输入的 value 改变并 blur， keyup则是键盘按�
 function update() {
   const searchStr = this.value.toUpperCase();
   suggestions.innerHTML = data
-    .filter(place => 
+    .filter(place =>
       place.city.toUpperCase().includes(searchStr) || place.state.toUpperCase().includes(searchStr)
     )
     .map(place => {
       const regex = new RegExp(this.value, 'gi');
       const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-      const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);    
+      const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
       return `
         <li>
           <span class="name">${cityName}, ${stateName}</span>
           <span class="population">${numberWithCommas(place.population)}</span>
         </li>
-      `; 
+      `;
     })
     .join('');
 }

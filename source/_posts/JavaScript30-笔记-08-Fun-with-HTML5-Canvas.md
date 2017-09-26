@@ -3,10 +3,6 @@ title: '[JavaScript30 笔记] 08 - Fun with HTML5 Canvas'
 date: 2017-01-16 21:53:06
 tags: [JavaScript, JavaScript30]
 ---
-# 写在系列开篇
-在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的[JavaScript30](https://JavaScript30.com)这个项目后决心好好实践一下 Vanilla JavaScript。
-
-对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 [blog](https://xg-wang.github.io/tags/JavaScript30/) 里记录过程、想法和相关资料。源码放在我的 [Github](https://github.com/xg-wang/JavaScript30)上，demo 通过 Github Pages 部署，点击[这里](https://xg-wang.github.io/JavaScript30/)或 Github 的 readme 中连接可以访问。
 
 # Objective
 实现一个简单的彩虹效果的 Canvas 画笔。
@@ -57,7 +53,7 @@ canvas 可以画出多种图形以及 animation 等特效，最简单的花路�
 ```
 canvas.addEventListener('mousemove', (e) => {
   if (!isDrawing) return false;
-  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; 
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
   ctx.beginPath();
   ctx.moveTo(lastX, lastY);
   ctx.lineTo(e.offsetX, e.offsetY);

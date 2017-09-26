@@ -4,11 +4,6 @@ date: 2017-01-11 23:33:18
 tags: [JavaScript30, JavaScript]
 ---
 
-# 写在系列开篇
-在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的[JavaScript30](https://JavaScript30.com)这个项目后决心好好实践一下 Vanilla JavaScript。
-
-对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 [blog](https://xg-wang.github.io/tags/JavaScript30/) 里记录过程、想法和相关资料。源码放在我的 [Github](https://github.com/xg-wang/JavaScript30)上，demo 通过 Github Pages 部署，点击[这里](https://xg-wang.github.io/JavaScript30/)或 Github 的 readme 中连接可以访问。
-
 # Objective
 利用 Flexbox 实现一个 Gallery，点击一个 panel 后可放大，并飞入上下的文字。
 <!-- more -->
@@ -23,7 +18,7 @@ tags: [JavaScript30, JavaScript]
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     ```
     并为每个子 panel 设置 flex-grow 为 1 使占满屏幕宽度.
 2. 居中子 panel 的所有 p tag 内容
