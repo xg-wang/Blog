@@ -91,12 +91,14 @@
 <meta property="og:site_name" content="Xingan&#39;s Blog">
 <meta property="og:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/fail.png">
+<meta property="og:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/success.png">
 <meta property="og:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/prelight.png">
-<meta property="og:updated_time" content="2017-10-11T05:52:54.586Z">
+<meta property="og:updated_time" content="2017-10-11T14:56:51.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A practical guide to CORS">
 <meta name="twitter:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
-<meta name="twitter:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/prelight.png">
+<meta name="twitter:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/fail.png">
 
 
 
@@ -351,12 +353,14 @@
 <h2 id="01-CORS-fail"><a href="#01-CORS-fail" class="headerlink" title="01. CORS fail"></a>01. CORS fail</h2><p>First we simply retrieve the data through API running on port 3000:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">&apos;http://localhost:3000/&apos;</span>)</div><div class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.text())</div><div class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> responseElement.innerHTML = res)</div><div class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> responseElement.innerHTML = err)</div></pre></td></tr></table></figure>
 <p>Click the button to send the request, you could see the returned response is &#x201C;TypeError: Failed to fetch&#x201D;.</p>
+<p><img src="/2017/10/A-practical-guide-to-CORS/fail.png" alt="fail"></p>
 <p>Now open your dev console, you can find the following error:</p>
 <blockquote>
 <p>Failed to load <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a>: No &#x2018;Access-Control-Allow-Origin&#x2019; header is present on the requested resource. Origin &#x2018;<a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a>&#x2018; is therefore not allowed access. If an opaque response serves your needs, set the request&#x2019;s mode to &#x2018;no-cors&#x2019; to fetch the resource with CORS disabled.</p>
 </blockquote>
 <p>Because our frontend is hosted on port 3000, and server is running on port 8000, the request from browser is restricted by the <strong>same-origin policy</strong>. To fix it, simply add a header to the response in our server code:&#xB7;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http://localhost:8000</div></pre></td></tr></table></figure></p>
 <p>Now click the button again and you should be able to see the response from server!</p>
+<p><img src="/2017/10/A-practical-guide-to-CORS/success.png" alt="Nails it"></p>
 <p>Open up the dev server and check the request and response, you can find the <code>Origin: http://localhost:8000</code> header in the request. This is added by the browser automatically.<br>In the response, we have the header we just added: <code>Access-Control-Allow-Origin: http://localhost:8000</code>. This allows our <a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a> to have access to the API endpoint. You may also specify &#x201C;*&#x201D; as a wildcard, thereby allowing any origin to access the resource.</p>
 <h2 id="02-preflight"><a href="#02-preflight" class="headerlink" title="02. preflight"></a>02. preflight</h2><p>This is not the end of story, let&#x2019;s try to add some header to our request as <code>&apos;Content-Type&apos;: &apos;application/json&apos;</code>.</p>
 <p>Send the request again and it fails. The console has the following error:</p>
