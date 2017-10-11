@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Xingan&#39;s Blog">
 <meta property="og:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-11T05:03:27.570Z">
+<meta property="og:updated_time" content="2017-10-11T05:11:04.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A practical guide to CORS">
 <meta name="twitter:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
@@ -406,7 +406,7 @@
 <p>Failed to load <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a>: Response to preflight request doesn&#x2019;t pass access control check: The value of the &#x2018;Access-Control-Allow-Credentials&#x2019; header in the response is &#x2018;&#x2019; which must be &#x2018;true&#x2019; when the request&#x2019;s credentials mode is &#x2018;include&#x2019;. Origin &#x2018;<a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a>&#x2018; is therefore not allowed access.</p>
 </blockquote>
 <h3 id="fix"><a href="#fix" class="headerlink" title="fix"></a>fix</h3><p>Remember the <code>Access-Control-Allow-Credentials</code>?<br>Set this header in both preflight and request: <code>Access-Control-Allow-Credentials: true</code>. Refresh, send again and it succeeds.</p>
-<p>Three more things to notice:</p>
+<p>Some more things to notice:</p>
 <ul>
 <li>For a simple request, response without this header will be rejected.</li>
 <li><code>Cookie</code> header will be added to the request if credentials flag set.</li>
