@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Xingan&#39;s Blog">
 <meta property="og:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-11T04:30:36.778Z">
+<meta property="og:updated_time" content="2017-10-11T05:03:27.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A practical guide to CORS">
 <meta name="twitter:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
@@ -376,8 +376,9 @@
 <li><code>Downlink</code></li>
 <li><code>Save-Data</code></li>
 <li><code>Viewport-Width</code></li>
-<li><code>Width</code><br>and whose value, once extracted, is not failure.</li>
+<li><code>Width</code></li>
 </ul>
+<p>and whose value, once extracted, is not failure.</p>
 </blockquote>
 <p>Open up the dev tools, the preflight request has following Headers:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Request Method: OPTIONS</div><div class="line">Access-Control-Request-Headers: content-type</div><div class="line">Access-Control-Request-Method: GET</div></pre></td></tr></table></figure></p>
 <p>Together with the <code>Origin: &lt;origin&gt;</code> header they are all we need for the request. In any access control request, the <code>Origin</code> header is always sent.<br>And <code>Access-Control-Request-Headers</code> can also be a comma separated array.</p>
