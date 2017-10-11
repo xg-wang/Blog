@@ -39,6 +39,8 @@ fetch('http://localhost:3000/')
 
 Click the button to send the request, you could see the returned response is "TypeError: Failed to fetch".
 
+![fail](../A-practical-guide-to-CORS/fail.png)
+
 Now open your dev console, you can find the following error:
 > Failed to load http://localhost:3000/: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:8000' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 
@@ -48,6 +50,8 @@ Access-Control-Allow-Origin: http://localhost:8000
 ```
 
 Now click the button again and you should be able to see the response from server!
+
+![Nails it](../A-practical-guide-to-CORS/success.png)
 
 Open up the dev server and check the request and response, you can find the `Origin: http://localhost:8000` header in the request. This is added by the browser automatically.
 In the response, we have the header we just added: `Access-Control-Allow-Origin: http://localhost:8000`. This allows our http://localhost:8000 to have access to the API endpoint. You may also specify "*" as a wildcard, thereby allowing any origin to access the resource.
