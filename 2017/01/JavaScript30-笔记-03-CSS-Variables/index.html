@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript30,JavaScript," />
+  <meta name="keywords" content="JavaScript,JavaScript30," />
 
 
 
@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Objective&amp;#x5229;&amp;#x7528; CSS Variable &amp;#x548C; JS &amp;#x8FDB;&amp;#x884C;&amp;#x6837;&amp;#x5F0F;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x63A7;&amp;#x5236;&amp;#x3002;">
-<meta name="keywords" content="JavaScript30,JavaScript">
+<meta name="description" content="Objective利用 CSS Variable 和 JS 进行样式属性的控制。">
+<meta name="keywords" content="JavaScript,JavaScript30">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JavaScript30 笔记] 03-CSS Variables">
 <meta property="og:url" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-03-CSS-Variables/index.html">
 <meta property="og:site_name" content="Xingan&#39;s Blog">
-<meta property="og:description" content="Objective&amp;#x5229;&amp;#x7528; CSS Variable &amp;#x548C; JS &amp;#x8FDB;&amp;#x884C;&amp;#x6837;&amp;#x5F0F;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x63A7;&amp;#x5236;&amp;#x3002;">
+<meta property="og:description" content="Objective利用 CSS Variable 和 JS 进行样式属性的控制。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-03-CSS-Variables/js30-03.gif">
 <meta property="og:updated_time" content="2017-09-26T16:15:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JavaScript30 笔记] 03-CSS Variables">
-<meta name="twitter:description" content="Objective&amp;#x5229;&amp;#x7528; CSS Variable &amp;#x548C; JS &amp;#x8FDB;&amp;#x884C;&amp;#x6837;&amp;#x5F0F;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x63A7;&amp;#x5236;&amp;#x3002;">
+<meta name="twitter:description" content="Objective利用 CSS Variable 和 JS 进行样式属性的控制。">
 <meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-03-CSS-Variables/js30-03.gif">
 
 
@@ -102,7 +102,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -202,6 +202,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -287,6 +297,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/JavaScript30-笔记-03-CSS-Variables/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/JavaScript30-笔记-03-CSS-Variables/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -311,30 +332,30 @@
       
 
       
-        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>&#x5229;&#x7528; CSS Variable &#x548C; JS &#x8FDB;&#x884C;&#x6837;&#x5F0F;&#x5C5E;&#x6027;&#x7684;&#x63A7;&#x5236;&#x3002;<br><a id="more"></a><br><img src="/2017/01/JavaScript30-&#x7B14;&#x8BB0;-03-CSS-Variables/js30-03.gif" alt="Demo"></p>
+        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>利用 CSS Variable 和 JS 进行样式属性的控制。<br><a id="more"></a><br><img src="/2017/01/JavaScript30-笔记-03-CSS-Variables/js30-03.gif" alt="Demo"></p>
 <blockquote>
 <ul>
 <li><a href="https://xg-wang.github.io/JavaScript30/03%20-%20CSS%20Variables/">Demo</a></li>
 <li><a href="https://github.com/xg-wang/JavaScript30/blob/master/03%20-%20CSS%20Variables/index.html" target="_blank" rel="external">Source</a></li>
 </ul>
 </blockquote>
-<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><h2 id="CSS-&#x90E8;&#x5206;"><a href="#CSS-&#x90E8;&#x5206;" class="headerlink" title="CSS &#x90E8;&#x5206;"></a>CSS &#x90E8;&#x5206;</h2><ol>
-<li>&#x5B9A;&#x4E49;&#x5168;&#x5C40; CSS &#x53D8;&#x91CF; <code>--spacing, --blur, --base</code>&#xFF1B;</li>
-<li>&#x5C06; CSS &#x53D8;&#x91CF;&#x6DFB;&#x52A0;&#x5230;&#x6837;&#x5F0F;&#x5C5E;&#x6027;&#x4E0A;&#x3002;</li>
+<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><h2 id="CSS-部分"><a href="#CSS-部分" class="headerlink" title="CSS 部分"></a>CSS 部分</h2><ol>
+<li>定义全局 CSS 变量 <code>--spacing, --blur, --base</code>；</li>
+<li>将 CSS 变量添加到样式属性上。</li>
 </ol>
-<h2 id="JS-&#x90E8;&#x5206;"><a href="#JS-&#x90E8;&#x5206;" class="headerlink" title="JS &#x90E8;&#x5206;"></a>JS &#x90E8;&#x5206;</h2><ol>
-<li>&#x5BF9;&#x6BCF;&#x4E2A; <code>type</code> &#x7C7B;&#x578B;&#x7684; <code>input</code> &#x6807;&#x7B7E;&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x6709; <code>moutsemove</code>, <code>change</code>&#xFF1B;</li>
-<li>&#x66F4;&#x65B0;&#x5168;&#x5C40;&#x7684; CSS &#x5C5E;&#x6027;&#xFF1A; <code>document.documentElement.style.setProperty()</code>&#x3002;</li>
+<h2 id="JS-部分"><a href="#JS-部分" class="headerlink" title="JS 部分"></a>JS 部分</h2><ol>
+<li>对每个 <code>type</code> 类型的 <code>input</code> 标签添加监听器，触发事件有 <code>moutsemove</code>, <code>change</code>；</li>
+<li>更新全局的 CSS 属性： <code>document.documentElement.style.setProperty()</code>。</li>
 </ol>
 <h1 id="Things-learned"><a href="#Things-learned" class="headerlink" title="Things learned"></a>Things learned</h1><h2 id="CSS-Variable"><a href="#CSS-Variable" class="headerlink" title="CSS Variable"></a>CSS Variable</h2><blockquote>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank" rel="external">MDN &#x6587;&#x6863;</a><br>&#x4E00;&#x822C;&#x5C06; CSS &#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#x5728; root element &#x7684; pseudo-class &#x4E0A;&#xFF0C;&#x4EE5; &#x2018;&#x2013;&#x2019; &#x5F00;&#x5934;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:root {</div><div class="line">    --spacing: 10px;</div><div class="line">    --blur: 10px;</div><div class="line">    --base: #ffc600;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank" rel="external">MDN 文档</a><br>一般将 CSS 变量定义在 root element 的 pseudo-class 上，以 ‘–’ 开头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:root &#123;</div><div class="line">    --spacing: 10px;</div><div class="line">    --blur: 10px;</div><div class="line">    --base: #ffc600;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
-<p>&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x53EA;&#x8981;&#x7528; <code>var(--blur)</code> &#x8FDB;&#x884C;&#x8C03;&#x7528;&#x5373;&#x53EF;&#x3002;</p>
-<p>&#x867D;&#x7136; Sass/Less &#x4E2D;&#x4E5F;&#x6709;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x5176;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x5B8C;&#x6210;&#x7ED1;&#x5B9A;&#xFF0C;&#x539F;&#x751F; CSS &#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6539;&#x53D8;&#xFF0C;&#x529F;&#x80FD;&#x66F4;&#x5F3A;&#x5927;&#x3002;</p>
+<p>在使用时只要用 <code>var(--blur)</code> 进行调用即可。</p>
+<p>虽然 Sass/Less 中也有变量，但其是在编译期完成绑定，原生 CSS 变量可以在运行时改变，功能更强大。</p>
 <h2 id="lt-input-gt-tag"><a href="#lt-input-gt-tag" class="headerlink" title="&lt;input&gt; tag"></a><code>&lt;input&gt;</code> tag</h2><blockquote>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank" rel="external">MDN</a> The HTML <code>&lt;input&gt;</code> element is used to create interactive controls for web-based forms in order to accept data from the user. How an <code>&lt;input&gt;</code> works varies considerably depending on the value of its type attribute.</p>
 </blockquote>
-<p><code>&lt;input&gt;</code> &#x6807;&#x7B7E;&#x7684;&#x57FA;&#x672C;&#x4F5C;&#x7528;&#x662F;&#x8FDB;&#x884C;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x8F93;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x6839;&#x636E; &#x201C;type&#x201D; &#x5C5E;&#x6027;&#x5236;&#x5B9A;&#x8F93;&#x5165;&#x7C7B;&#x578B;&#xFF0C;&#x79CD;&#x7C7B;&#x975E;&#x5E38;&#x4E30;&#x5BCC;&#xFF1A;</p>
+<p><code>&lt;input&gt;</code> 标签的基本作用是进行用户交互输入数据，根据 “type” 属性制定输入类型，种类非常丰富：</p>
 <ul>
 <li>type=button: link, menuitem, menuitemcheckbox, menuitemradio, radio, switch, tab</li>
 <li>type=checkbox: button, menuitemcheckbox, option, switch</li>
@@ -344,13 +365,13 @@
 <li>type=month|number|password|range|research: None</li>
 <li>type=search|submit|tel|text|url|week: None</li>
 </ul>
-<p>&#x8FD9;&#x4E2A;demo&#x4E2D;&#x7528;&#x5230;&#x4E86;&#xFF1A;</p>
+<p>这个demo中用到了：</p>
 <ul>
-<li>color: &#x6839;&#x636E; OS &#x5524;&#x51FA;&#x53D6;&#x8272;&#x5668;</li>
-<li>range: &#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5177;&#x4F53;&#x6570;&#x503C;&#x4E0D;&#x91CD;&#x8981;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6BD4;&#x4F8B;&#x4F30;&#x7B97;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#xFF1A;<ul>
+<li>color: 根据 OS 唤出取色器</li>
+<li>range: 一般用于具体数值不重要，可以根据比例估算的输入，默认值为：<ul>
 <li>min: 0</li>
 <li>max: 100</li>
-<li>value: min + (max - min) / 2, min &#x5982;&#x679C; max &lt; min</li>
+<li>value: min + (max - min) / 2, min 如果 max &lt; min</li>
 <li>step: 1</li>
 </ul>
 </li>
@@ -372,9 +393,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
-          
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
           
         </div>
       
@@ -418,32 +439,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -453,6 +448,16 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -531,19 +536,25 @@ var jiathis_config={
                 <span class="links-of-author-item">
                   <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
                     
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
                     
-                      <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
                     
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/xg.wang" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                 </span>
               
             
@@ -578,6 +589,13 @@ var jiathis_config={
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -625,11 +643,6 @@ var jiathis_config={
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -733,8 +746,30 @@ var jiathis_config={
 
   
 
+    
+      <script id="dsq-count-scr" src="https://xg-wang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://xg-wang.github.io/2017/01/JavaScript30-笔记-03-CSS-Variables/';
+          this.page.identifier = '2017/01/JavaScript30-笔记-03-CSS-Variables/';
+          this.page.title = '[JavaScript30 笔记] 03-CSS Variables';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xg-wang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
 
 
+
+
+	
 
 
 
@@ -753,20 +788,44 @@ var jiathis_config={
 
 
 
-  
-
-
-
 
 
   
 
+
+
+
+
+  
+
   
 
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

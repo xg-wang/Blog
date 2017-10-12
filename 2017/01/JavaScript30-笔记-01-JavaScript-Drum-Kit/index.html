@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript30,JavaScript," />
+  <meta name="keywords" content="JavaScript,JavaScript30," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="&amp;#x5199;&amp;#x5728;&amp;#x7CFB;&amp;#x5217;&amp;#x5F00;&amp;#x7BC7;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x57FA;&amp;#x672C;&amp;#x7684; HTML / CSS / JavaScript &amp;#x4E4B;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x5565; side project &amp;#x5C31;&amp;#x76F4;&amp;">
-<meta name="keywords" content="JavaScript30,JavaScript">
+<meta name="description" content="写在系列开篇在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的JavaScript30这个项目后决心好好实践一下 Vanilla JavaScript。 对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 blog 里记录过程、想法和相关资料。源码放在我的 Github上，demo 通过">
+<meta name="keywords" content="JavaScript,JavaScript30">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JavaScript30 笔记] 01-JavaScript Drum Kit">
 <meta property="og:url" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-01-JavaScript-Drum-Kit/index.html">
 <meta property="og:site_name" content="Xingan&#39;s Blog">
-<meta property="og:description" content="&amp;#x5199;&amp;#x5728;&amp;#x7CFB;&amp;#x5217;&amp;#x5F00;&amp;#x7BC7;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x57FA;&amp;#x672C;&amp;#x7684; HTML / CSS / JavaScript &amp;#x4E4B;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x5565; side project &amp;#x5C31;&amp;#x76F4;&amp;">
+<meta property="og:description" content="写在系列开篇在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的JavaScript30这个项目后决心好好实践一下 Vanilla JavaScript。 对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 blog 里记录过程、想法和相关资料。源码放在我的 Github上，demo 通过">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-01-21T18:23:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JavaScript30 笔记] 01-JavaScript Drum Kit">
-<meta name="twitter:description" content="&amp;#x5199;&amp;#x5728;&amp;#x7CFB;&amp;#x5217;&amp;#x5F00;&amp;#x7BC7;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x57FA;&amp;#x672C;&amp;#x7684; HTML / CSS / JavaScript &amp;#x4E4B;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x5565; side project &amp;#x5C31;&amp;#x76F4;&amp;">
+<meta name="twitter:description" content="写在系列开篇在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的JavaScript30这个项目后决心好好实践一下 Vanilla JavaScript。 对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 blog 里记录过程、想法和相关资料。源码放在我的 Github上，demo 通过">
 
 
 
@@ -100,7 +100,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -200,6 +200,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -285,6 +295,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/JavaScript30-笔记-01-JavaScript-Drum-Kit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/JavaScript30-笔记-01-JavaScript-Drum-Kit/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -309,9 +330,9 @@
       
 
       
-        <h1 id="&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;"><a href="#&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;" class="headerlink" title="&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;"></a>&#x5199;&#x5728;&#x7CFB;&#x5217;&#x5F00;&#x7BC7;</h1><p>&#x5728;&#x5B66;&#x4E60;&#x4E86;&#x57FA;&#x672C;&#x7684; HTML / CSS / JavaScript &#x4E4B;&#x540E;&#x6CA1;&#x6709;&#x5565; side project &#x5C31;&#x76F4;&#x63A5;&#x5F00;&#x59CB;&#x5B66; Angular &#x505A;&#x9879;&#x76EE;&#x3002;&#x9047;&#x5230;&#x6700;&#x8FD1;&#x5F88;&#x706B;&#x7684;<a href="https://JavaScript30.com" target="_blank" rel="external">JavaScript30</a>&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x540E;&#x51B3;&#x5FC3;&#x597D;&#x597D;&#x5B9E;&#x8DF5;&#x4E00;&#x4E0B; Vanilla JavaScript&#x3002;</p>
-<p>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x6311;&#x6218;&#xFF0C;&#x6211;&#x4F1A;&#x81EA;&#x5DF1;&#x5728;&#x770B;&#x8FC7;&#x89C6;&#x9891;&#x4E86;&#x89E3;&#x539F;&#x7406;&#x540E;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E00;&#x904D;&#x5E76;&#x5728; <a href="https://xg-wang.github.io/tags/JavaScript30/">blog</a> &#x91CC;&#x8BB0;&#x5F55;&#x8FC7;&#x7A0B;&#x3001;&#x60F3;&#x6CD5;&#x548C;&#x76F8;&#x5173;&#x8D44;&#x6599;&#x3002;&#x6E90;&#x7801;&#x653E;&#x5728;&#x6211;&#x7684; <a href="https://github.com/xg-wang/JavaScript30" target="_blank" rel="external">Github</a>&#x4E0A;&#xFF0C;demo &#x901A;&#x8FC7; Github Pages &#x90E8;&#x7F72;&#xFF0C;&#x70B9;&#x51FB;<a href="https://xg-wang.github.io/JavaScript30/">&#x8FD9;&#x91CC;</a>&#x6216; Github &#x7684; readme &#x4E2D;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x3002;</p>
-<h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>&#x901A;&#x8FC7;&#x9884;&#x5148;&#x63D0;&#x4F9B;&#x7684;&#x97F3;&#x9891;&#x6587;&#x4EF6;&#x548C; JavaScript &#x5B9E;&#x73B0;&#x952E;&#x76D8;&#x6309;&#x952E;&#x6253;&#x9F13;&#xFF0C;&#x6309;&#x4E0B;&#x9884;&#x5B9A;&#x7684;&#x952E;&#x4F4D;&#x540E;&#x8FDB;&#x884C;&#x9AD8;&#x4EAE;&#x5E76;&#x5728;&#x9AD8;&#x4EAE;&#x8F6C;&#x6362;&#x7ED3;&#x675F;&#x540E;&#x6062;&#x590D;&#x3002;<br><a id="more"></a></p>
+        <h1 id="写在系列开篇"><a href="#写在系列开篇" class="headerlink" title="写在系列开篇"></a>写在系列开篇</h1><p>在学习了基本的 HTML / CSS / JavaScript 之后没有啥 side project 就直接开始学 Angular 做项目。遇到最近很火的<a href="https://JavaScript30.com" target="_blank" rel="external">JavaScript30</a>这个项目后决心好好实践一下 Vanilla JavaScript。</p>
+<p>对于每个挑战，我会自己在看过视频了解原理后自己实现一遍并在 <a href="https://xg-wang.github.io/tags/JavaScript30/">blog</a> 里记录过程、想法和相关资料。源码放在我的 <a href="https://github.com/xg-wang/JavaScript30" target="_blank" rel="external">Github</a>上，demo 通过 Github Pages 部署，点击<a href="https://xg-wang.github.io/JavaScript30/">这里</a>或 Github 的 readme 中连接可以访问。</p>
+<h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>通过预先提供的音频文件和 JavaScript 实现键盘按键打鼓，按下预定的键位后进行高亮并在高亮转换结束后恢复。<br><a id="more"></a></p>
 <blockquote>
 <ul>
 <li><a href="https://xg-wang.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/">Demo</a></li>
@@ -319,15 +340,15 @@
 </ul>
 </blockquote>
 <h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><ol>
-<li>&#x6DFB;&#x52A0;&#x5168;&#x5C40;&#x7684;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x64AD;&#x653E;&#x6309;&#x952E;&#x76F8;&#x5E94;&#x7684;&#x97F3;&#x9891;&#xFF1B;</li>
-<li>&#x64AD;&#x653E;&#x97F3;&#x9891;&#x524D;&#x5BF9;&#x6309;&#x952E; dom &#x5143;&#x7D20;&#x9AD8;&#x4EAE;&#xFF1B;</li>
-<li>&#x5BF9;&#x6240;&#x6709;&#x6309;&#x952E; dom &#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5728; transition &#x7ED3;&#x675F;&#x540E;&#x6062;&#x590D;&#x539F;&#x5148;&#x6837;&#x5F0F;&#x3002;</li>
+<li>添加全局的监听器，播放按键相应的音频；</li>
+<li>播放音频前对按键 dom 元素高亮；</li>
+<li>对所有按键 dom 元素添加监听器，在 transition 结束后恢复原先样式。</li>
 </ol>
-<h1 id="Things-learned"><a href="#Things-learned" class="headerlink" title="Things learned"></a>Things learned</h1><h2 id="data"><a href="#data" class="headerlink" title="data-*"></a>data-*</h2><p>&#x901A;&#x8FC7; data-* (&#x8FD9;&#x91CC;&#x662F;data-key) &#x5BF9; dom &#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6807;&#x8BC6;&#x5E76;&#x4E0E;&#x6570;&#x636E;&#x5BF9;&#x5E94;&#x8D77;&#x6765;&#x3002;&#x8FD9;&#x4E2A;&#x5C0F;&#x6280;&#x5DE7;&#x5728;&#x9762;&#x8BD5; LinkedIn &#x7684;&#x524D;&#x7AEF;&#x5B9E;&#x4E60;&#x65F6;&#x5019;&#x4E5F;&#x88AB;&#x8003;&#x5230;&#x4E86;&#x3002;<br>&#x5728;&#x9009;&#x53D6;&#x65F6;&#x5373;&#x53EF;&#x7528;<code>const key = document.querySelector(</code>div[data-key=&#x201D;${e.keyCode}&#x201D;]<code>);</code>&#x6765;&#x83B7;&#x5F97;&#x5143;&#x7D20;&#x3002;</p>
-<h2 id="HTML5-Audio"><a href="#HTML5-Audio" class="headerlink" title="HTML5 Audio"></a>HTML5 Audio</h2><p>HTML &#x90E8;&#x5206;&#x901A;&#x8FC7; HTML5 &#x7684; <code>&lt;audio&gt;</code> &#x6807;&#x7B7E;&#x5D4C;&#x5165;&#x97F3;&#x9891;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;audio data-key=&quot;65&quot; src=&quot;sounds/clap.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;83&quot; src=&quot;sounds/hihat.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;68&quot; src=&quot;sounds/kick.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;70&quot; src=&quot;sounds/openhat.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;71&quot; src=&quot;sounds/boom.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;72&quot; src=&quot;sounds/ride.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;74&quot; src=&quot;sounds/snare.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;75&quot; src=&quot;sounds/tom.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;76&quot; src=&quot;sounds/tink.wav&quot;&gt;&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
-<p>JavaScript &#x90E8;&#x5206;&#x5728;&#x83B7;&#x53D6;&#x4E86;&#x5143;&#x7D20;&#x540E;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E; <code>currentTime</code>&#xFF0C;&#x8C03;&#x7528;<code>play()</code>&#x65B9;&#x6CD5;&#x7B49;&#x7B49;&#x3002;<br>&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>currentTime = 0</code> &#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x6BCF;&#x6B21;&#x70B9;&#x51FB;&#x540E;&#x90FD;&#x91CD;&#x65B0;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x64AD;&#x653E;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const audio = document.querySelector(`audio[data-key=&quot;${e.keyCode}&quot;]`);</div><div class="line">audio.currentTime = 0;</div><div class="line">audio.play();</div></pre></td></tr></table></figure></p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" target="_blank" rel="external">MDN&#x6587;&#x6863;</a></p>
-<h2 id="&#x53D6;&#x6D88;&#x6837;&#x5F0F;"><a href="#&#x53D6;&#x6D88;&#x6837;&#x5F0F;" class="headerlink" title="&#x53D6;&#x6D88;&#x6837;&#x5F0F;"></a>&#x53D6;&#x6D88;&#x6837;&#x5F0F;</h2><p>&#x4E00;&#x79CD;&#x53EF;&#x80FD;&#x7684;&#x65B9;&#x6848;&#x662F;&#x8BBE;&#x7F6E;&#x5B9A;&#x65F6;&#x5668;&#x8FDB;&#x884C; css &#x7684; <code>remove</code>&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x6309;&#x4F4F;&#x4E0D;&#x653E;&#x7684;&#x60C5;&#x51B5;&#x8FD9;&#x6837;&#x5904;&#x7406;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x3002;&#x901A;&#x8FC7; <a href="https://developer.mozilla.org/en-US/docs/Web/Events/transitionend" target="_blank" rel="external">transitioned&#x4E8B;&#x4EF6;</a> &#x53EF;&#x4EE5;&#x5728; css transition &#x7ED3;&#x675F;&#x65F6;&#x8C03;&#x7528; <code>e.target.classList.remove(&apos;playing&apos;);</code> &#x53D6;&#x6D88;&#x6837;&#x5F0F;&#x3002;</p>
+<h1 id="Things-learned"><a href="#Things-learned" class="headerlink" title="Things learned"></a>Things learned</h1><h2 id="data"><a href="#data" class="headerlink" title="data-*"></a>data-*</h2><p>通过 data-* (这里是data-key) 对 dom 元素进行标识并与数据对应起来。这个小技巧在面试 LinkedIn 的前端实习时候也被考到了。<br>在选取时即可用<code>const key = document.querySelector(</code>div[data-key=”${e.keyCode}”]<code>);</code>来获得元素。</p>
+<h2 id="HTML5-Audio"><a href="#HTML5-Audio" class="headerlink" title="HTML5 Audio"></a>HTML5 Audio</h2><p>HTML 部分通过 HTML5 的 <code>&lt;audio&gt;</code> 标签嵌入音频<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;audio data-key=&quot;65&quot; src=&quot;sounds/clap.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;83&quot; src=&quot;sounds/hihat.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;68&quot; src=&quot;sounds/kick.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;70&quot; src=&quot;sounds/openhat.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;71&quot; src=&quot;sounds/boom.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;72&quot; src=&quot;sounds/ride.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;74&quot; src=&quot;sounds/snare.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;75&quot; src=&quot;sounds/tom.wav&quot;&gt;&lt;/audio&gt;</div><div class="line">&lt;audio data-key=&quot;76&quot; src=&quot;sounds/tink.wav&quot;&gt;&lt;/audio&gt;</div></pre></td></tr></table></figure></p>
+<p>JavaScript 部分在获取了元素后可以设置 <code>currentTime</code>，调用<code>play()</code>方法等等。<br>通过设置 <code>currentTime = 0</code> 可以保证每次点击后都重新从头开始播放。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const audio = document.querySelector(`audio[data-key=&quot;$&#123;e.keyCode&#125;&quot;]`);</div><div class="line">audio.currentTime = 0;</div><div class="line">audio.play();</div></pre></td></tr></table></figure></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" target="_blank" rel="external">MDN文档</a></p>
+<h2 id="取消样式"><a href="#取消样式" class="headerlink" title="取消样式"></a>取消样式</h2><p>一种可能的方案是设置定时器进行 css 的 <code>remove</code>，但对于按住不放的情况这样处理不是很好。通过 <a href="https://developer.mozilla.org/en-US/docs/Web/Events/transitionend" target="_blank" rel="external">transitioned事件</a> 可以在 css transition 结束时调用 <code>e.target.classList.remove(&#39;playing&#39;);</code> 取消样式。</p>
 
       
     </div>
@@ -345,9 +366,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
-          
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
           
         </div>
       
@@ -391,32 +412,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -426,6 +421,16 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -504,19 +509,25 @@ var jiathis_config={
                 <span class="links-of-author-item">
                   <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
                     
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
                     
-                      <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
                     
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/xg.wang" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                 </span>
               
             
@@ -551,6 +562,13 @@ var jiathis_config={
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -598,11 +616,6 @@ var jiathis_config={
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -706,8 +719,30 @@ var jiathis_config={
 
   
 
+    
+      <script id="dsq-count-scr" src="https://xg-wang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://xg-wang.github.io/2017/01/JavaScript30-笔记-01-JavaScript-Drum-Kit/';
+          this.page.identifier = '2017/01/JavaScript30-笔记-01-JavaScript-Drum-Kit/';
+          this.page.title = '[JavaScript30 笔记] 01-JavaScript Drum Kit';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xg-wang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
 
 
+
+
+	
 
 
 
@@ -726,20 +761,44 @@ var jiathis_config={
 
 
 
-  
-
-
-
 
 
   
 
+
+
+
+
+  
+
   
 
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

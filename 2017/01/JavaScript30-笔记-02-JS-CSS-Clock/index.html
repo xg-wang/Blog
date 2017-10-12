@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript30,JavaScript," />
+  <meta name="keywords" content="JavaScript,JavaScript30," />
 
 
 
@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Objective&amp;#x5229;&amp;#x7528; CSS &amp;#x548C; JS &amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x65F6;&amp;#x949F;&amp;#x754C;&amp;#x9762;&amp;#xFF0C;&amp;#x6BCF;&amp;#x79D2;&amp;#x66F4;&amp;#x65B0;&amp;#x4E09;&amp;#x4E2A;&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6">
-<meta name="keywords" content="JavaScript30,JavaScript">
+<meta name="description" content="Objective利用 CSS 和 JS 实现一个时钟界面，每秒更新三个指针的位置。">
+<meta name="keywords" content="JavaScript,JavaScript30">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JavaScript30 笔记] 02-JS + CSS Clock">
 <meta property="og:url" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/index.html">
 <meta property="og:site_name" content="Xingan&#39;s Blog">
-<meta property="og:description" content="Objective&amp;#x5229;&amp;#x7528; CSS &amp;#x548C; JS &amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x65F6;&amp;#x949F;&amp;#x754C;&amp;#x9762;&amp;#xFF0C;&amp;#x6BCF;&amp;#x79D2;&amp;#x66F4;&amp;#x65B0;&amp;#x4E09;&amp;#x4E2A;&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6">
+<meta property="og:description" content="Objective利用 CSS 和 JS 实现一个时钟界面，每秒更新三个指针的位置。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif">
 <meta property="og:updated_time" content="2017-09-26T16:15:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JavaScript30 笔记] 02-JS + CSS Clock">
-<meta name="twitter:description" content="Objective&amp;#x5229;&amp;#x7528; CSS &amp;#x548C; JS &amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x65F6;&amp;#x949F;&amp;#x754C;&amp;#x9762;&amp;#xFF0C;&amp;#x6BCF;&amp;#x79D2;&amp;#x66F4;&amp;#x65B0;&amp;#x4E09;&amp;#x4E2A;&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6">
+<meta name="twitter:description" content="Objective利用 CSS 和 JS 实现一个时钟界面，每秒更新三个指针的位置。">
 <meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif">
 
 
@@ -102,7 +102,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -202,6 +202,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -287,6 +297,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/JavaScript30-笔记-02-JS-CSS-Clock/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -311,34 +332,34 @@
       
 
       
-        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>&#x5229;&#x7528; CSS &#x548C; JS &#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x65F6;&#x949F;&#x754C;&#x9762;&#xFF0C;&#x6BCF;&#x79D2;&#x66F4;&#x65B0;&#x4E09;&#x4E2A;&#x6307;&#x9488;&#x7684;&#x4F4D;&#x7F6E;&#x3002;<br><a id="more"></a><br><img src="/2017/01/JavaScript30-&#x7B14;&#x8BB0;-02-JS-CSS-Clock/js30-02.gif" alt="Demo"></p>
+        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>利用 CSS 和 JS 实现一个时钟界面，每秒更新三个指针的位置。<br><a id="more"></a><br><img src="/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif" alt="Demo"></p>
 <blockquote>
 <ul>
 <li><a href="https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock">Demo</a></li>
 <li><a href="https://github.com/xg-wang/JavaScript30/blob/master/02%20-%20JS%20%2B%20CSS%20Clock/index.html" target="_blank" rel="external">Source</a></li>
 </ul>
 </blockquote>
-<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><h2 id="CSS-&#x90E8;&#x5206;"><a href="#CSS-&#x90E8;&#x5206;" class="headerlink" title="CSS &#x90E8;&#x5206;"></a>CSS &#x90E8;&#x5206;</h2><ol>
-<li>&#x8BBE;&#x7F6E;&#x6307;&#x9488;&#x65CB;&#x8F6C;&#x7684;&#x539F;&#x70B9;<code>transform-origin: right;</code></li>
-<li>&#x8BBE;&#x7F6E; CSS transition &#x6A21;&#x62DF;&#x65F6;&#x949F;&#x6307;&#x9488;&#x6296;&#x52A8;&#xFF1B;</li>
-<li>&#x6DFB;&#x52A0; CSS &#x6837;&#x5F0F;&#x533A;&#x522B;&#x65F6;&#x9488;&#x79D2;&#x9488;&#x3002;</li>
+<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><h2 id="CSS-部分"><a href="#CSS-部分" class="headerlink" title="CSS 部分"></a>CSS 部分</h2><ol>
+<li>设置指针旋转的原点<code>transform-origin: right;</code></li>
+<li>设置 CSS transition 模拟时钟指针抖动；</li>
+<li>添加 CSS 样式区别时针秒针。</li>
 </ol>
-<h2 id="JS-&#x90E8;&#x5206;"><a href="#JS-&#x90E8;&#x5206;" class="headerlink" title="JS &#x90E8;&#x5206;"></a>JS &#x90E8;&#x5206;</h2><ol>
-<li>&#x83B7;&#x53D6; Date &#x5BF9;&#x8C61;&#x5F97;&#x5230;&#x65F6;&#x95F4;&#x5E76;&#x8BA1;&#x7B97;&#x9700;&#x8981;&#x8F6C;&#x52A8;&#x7684;&#x89D2;&#x5EA6;&#xFF1B;</li>
-<li>&#x8BBE;&#x7F6E;&#x4E09;&#x4E2A;&#x6307;&#x9488;&#x7684; transform &#x5C5E;&#x6027;&#x4E3A; <code>rotate(${xxxDegree}deg)</code>&#xFF1B;</li>
-<li>&#x5728;&#x8F6C;&#x52A8;&#x89D2;&#x5EA6;&#x5F52;&#x96F6;(90deg)&#x65F6;&#x7279;&#x6B8A;&#x5904;&#x7406; transition&#x3002;</li>
+<h2 id="JS-部分"><a href="#JS-部分" class="headerlink" title="JS 部分"></a>JS 部分</h2><ol>
+<li>获取 Date 对象得到时间并计算需要转动的角度；</li>
+<li>设置三个指针的 transform 属性为 <code>rotate(${xxxDegree}deg)</code>；</li>
+<li>在转动角度归零(90deg)时特殊处理 transition。</li>
 </ol>
-<h1 id="Things-learned"><a href="#Things-learned" class="headerlink" title="Things learned"></a>Things learned</h1><h2 id="CSS-tranform"><a href="#CSS-tranform" class="headerlink" title="CSS tranform"></a>CSS tranform</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank" rel="external">MDN document</a><br>&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>transform</code> &#x4E3A; <code>translateX/Y</code> &#x8FDB;&#x884C;&#x5E73;&#x79FB;&#xFF0C;<code>rotate</code> &#x8FDB;&#x884C;&#x65CB;&#x8F6C;&#xFF0C;<code>transform-origin</code> &#x6307;&#x5B9A;&#x65CB;&#x8F6C;&#x7684;&#x5706;&#x5FC3;&#x3002;</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function" target="_blank" rel="external">transform function</a>&#x6DB5;&#x76D6;&#x4E86;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x51E0;&#x4F55;&#x53D8;&#x6362;&#xFF0C;&#x5177;&#x4F53;&#x89C1;&#x6587;&#x6863;&#x3002;</p>
-<h2 id="transition-timing-function"><a href="#transition-timing-function" class="headerlink" title="transition-timing-function"></a>transition-timing-function</h2><p>&#x4E00;&#x822C; <code>transition-timing-function</code> &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A; <code>ease</code> &#x4E4B;&#x7C7B;&#x7684;&#x3002;&#x5229;&#x7528; <code>dev-tools</code> &#x53EF;&#x4EE5;&#x56FE;&#x5F62;&#x5316;&#x624B;&#x52A8;&#x8C03;&#x8282;&#x66F2;&#x7EBF;&#x7684;&#x5230;&#x60F3;&#x8981;&#x7684; <code>cubic-bezier</code>&#x3002;</p>
-<h2 id="&#x89D2;&#x5EA6;&#x5F52;&#x96F6;&#x7684;&#x5904;&#x7406;"><a href="#&#x89D2;&#x5EA6;&#x5F52;&#x96F6;&#x7684;&#x5904;&#x7406;" class="headerlink" title="&#x89D2;&#x5EA6;&#x5F52;&#x96F6;&#x7684;&#x5904;&#x7406;"></a>&#x89D2;&#x5EA6;&#x5F52;&#x96F6;&#x7684;&#x5904;&#x7406;</h2><p>&#x4EE5;&#x79D2;&#x9488;&#x4E3A;&#x4F8B;&#xFF0C;<br>&#x56E0;&#x4E3A;&#x8BBE;&#x7F6E;&#x4E86; transition&#xFF0C;&#x5728;&#x79D2;&#x9488;&#x4ECE; 444 &#x8DF3;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x79D2;&#x65F6;&#x4E0D;&#x662F; 450 &#x5EA6;&#xFF0C;&#x800C;&#x662F;&#x5F52;&#x96F6;&#x4E3A; 0 + 90 = 90 &#x5EA6;&#x3002;&#x8BBE;&#x7F6E;&#x7684; transition &#x5B9E;&#x9645;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x6307;&#x9488;&#x9006;&#x65F6;&#x9488;&#x5012;&#x8F6C;&#x5230;90&#x5EA6;&#x3002;</p>
-<p>&#x89C6;&#x9891;&#x4E2D; Wes &#x63D0;&#x5230;&#x4E86;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h1 id="Things-learned"><a href="#Things-learned" class="headerlink" title="Things learned"></a>Things learned</h1><h2 id="CSS-tranform"><a href="#CSS-tranform" class="headerlink" title="CSS tranform"></a>CSS tranform</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank" rel="external">MDN document</a><br>通过设置 <code>transform</code> 为 <code>translateX/Y</code> 进行平移，<code>rotate</code> 进行旋转，<code>transform-origin</code> 指定旋转的圆心。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function" target="_blank" rel="external">transform function</a>涵盖了几乎所有几何变换，具体见文档。</p>
+<h2 id="transition-timing-function"><a href="#transition-timing-function" class="headerlink" title="transition-timing-function"></a>transition-timing-function</h2><p>一般 <code>transition-timing-function</code> 可以设置为 <code>ease</code> 之类的。利用 <code>dev-tools</code> 可以图形化手动调节曲线的到想要的 <code>cubic-bezier</code>。</p>
+<h2 id="角度归零的处理"><a href="#角度归零的处理" class="headerlink" title="角度归零的处理"></a>角度归零的处理</h2><p>以秒针为例，<br>因为设置了 transition，在秒针从 444 跳动到下一秒时不是 450 度，而是归零为 0 + 90 = 90 度。设置的 transition 实际执行结果是指针逆时针倒转到90度。</p>
+<p>视频中 Wes 提到了两种方法：</p>
 <ol>
-<li>&#x5F52;&#x96F6;&#x65F6;&#x6682;&#x65F6;&#x53D6;&#x6D88; transition&#xFF1B;</li>
-<li>&#x89D2;&#x5EA6;&#x53EA;&#x589E;&#x4E0D;&#x51CF;&#x3002;</li>
+<li>归零时暂时取消 transition；</li>
+<li>角度只增不减。</li>
 </ol>
-<p><a href="https://github.com/soyaine/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock" target="_blank" rel="external">Soyaine</a>&#x4F7F;&#x7528;&#x7684;&#x89E3;&#x6CD5;&#x662F;&#x6682;&#x65F6;&#x53D6;&#x6D88; transition&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (secondDeg === 90) secHand.style.transition = &apos;all 0s&apos;;</div><div class="line">else secHand.style.transition = &apos;all 0.05s&apos;;</div></pre></td></tr></table></figure></p>
-<p>&#x4F46;&#x8FD9;&#x6837;&#x5B9E;&#x9645;&#x7ED3;&#x679C;&#x662F;&#x90A3;&#x4E00;&#x79D2;&#x6CA1;&#x6709; transition &#x6548;&#x679C;&#xFF0C;&#x6211;&#x6539;&#x8FDB;&#x4E86;&#x4E00;&#x4E0B;&#x52A0;&#x5165;&#x4E24;&#x4E2A; <code>setTimeout</code> &#x5B8C;&#x6210;&#x89D2;&#x5EA6;&#x7684;&#x5F52;&#x96F6;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if (secDegree === 444) {</div><div class="line">    setTimeout(() =&gt; {</div><div class="line">        secHand.style.transition = &apos;all 0s&apos;;</div><div class="line">        secHand.style.transform = `rotate(${secDegree-360}deg)`;</div><div class="line">    }, 100);</div><div class="line">    setTimeout(() =&gt; {</div><div class="line">        secHand.style.transition = &apos;all .05s&apos;;</div><div class="line">    }, 500);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/soyaine/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock" target="_blank" rel="external">Soyaine</a>使用的解法是暂时取消 transition：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (secondDeg === 90) secHand.style.transition = &apos;all 0s&apos;;</div><div class="line">else secHand.style.transition = &apos;all 0.05s&apos;;</div></pre></td></tr></table></figure></p>
+<p>但这样实际结果是那一秒没有 transition 效果，我改进了一下加入两个 <code>setTimeout</code> 完成角度的归零。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if (secDegree === 444) &#123;</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">        secHand.style.transition = &apos;all 0s&apos;;</div><div class="line">        secHand.style.transform = `rotate($&#123;secDegree-360&#125;deg)`;</div><div class="line">    &#125;, 100);</div><div class="line">    setTimeout(() =&gt; &#123;</div><div class="line">        secHand.style.transition = &apos;all .05s&apos;;</div><div class="line">    &#125;, 500);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -356,9 +377,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
-          
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
           
         </div>
       
@@ -402,32 +423,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -437,6 +432,16 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -515,19 +520,25 @@ var jiathis_config={
                 <span class="links-of-author-item">
                   <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
                     
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
                     
-                      <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
                     
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/xg.wang" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                 </span>
               
             
@@ -562,6 +573,13 @@ var jiathis_config={
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -609,11 +627,6 @@ var jiathis_config={
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -717,8 +730,30 @@ var jiathis_config={
 
   
 
+    
+      <script id="dsq-count-scr" src="https://xg-wang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://xg-wang.github.io/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/';
+          this.page.identifier = '2017/01/JavaScript30-笔记-02-JS-CSS-Clock/';
+          this.page.title = '[JavaScript30 笔记] 02-JS + CSS Clock';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xg-wang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
 
 
+
+
+	
 
 
 
@@ -737,20 +772,44 @@ var jiathis_config={
 
 
 
-  
-
-
-
 
 
   
 
+
+
+
+
+  
+
   
 
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

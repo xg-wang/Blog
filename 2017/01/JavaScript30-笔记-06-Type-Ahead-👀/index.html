@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript30,JavaScript," />
+  <meta name="keywords" content="JavaScript,JavaScript30," />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Objective&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A; &amp;#x201C;typeahead&amp;#x201D;&amp;#xFF0C;&amp;#x6309;&amp;#x4E0B;&amp;#x8F93;&amp;#x5165;&amp;#x5B57;&amp;#x6BCD;&amp;#x540E;&amp;#x641C;&amp;#x7D22;&amp;#x7F13;&amp;#x5B58;&amp;#x6570;&amp;#x636E;&amp;#x4E2D;&amp;#x5339;&amp;#x91">
-<meta name="keywords" content="JavaScript30,JavaScript">
+<meta name="description" content="Objective实现一个 “typeahead”，按下输入字母后搜索缓存数据中匹配的条目并显示。同时高亮搜索的字符串。">
+<meta name="keywords" content="JavaScript,JavaScript30">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JavaScript30 笔记] 06 - Type Ahead 👀">
 <meta property="og:url" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/index.html">
 <meta property="og:site_name" content="Xingan&#39;s Blog">
-<meta property="og:description" content="Objective&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A; &amp;#x201C;typeahead&amp;#x201D;&amp;#xFF0C;&amp;#x6309;&amp;#x4E0B;&amp;#x8F93;&amp;#x5165;&amp;#x5B57;&amp;#x6BCD;&amp;#x540E;&amp;#x641C;&amp;#x7D22;&amp;#x7F13;&amp;#x5B58;&amp;#x6570;&amp;#x636E;&amp;#x4E2D;&amp;#x5339;&amp;#x91">
+<meta property="og:description" content="Objective实现一个 “typeahead”，按下输入字母后搜索缓存数据中匹配的条目并显示。同时高亮搜索的字符串。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif">
+<meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif">
 <meta property="og:updated_time" content="2017-09-26T16:16:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JavaScript30 笔记] 06 - Type Ahead 👀">
-<meta name="twitter:description" content="Objective&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A; &amp;#x201C;typeahead&amp;#x201D;&amp;#xFF0C;&amp;#x6309;&amp;#x4E0B;&amp;#x8F93;&amp;#x5165;&amp;#x5B57;&amp;#x6BCD;&amp;#x540E;&amp;#x641C;&amp;#x7D22;&amp;#x7F13;&amp;#x5B58;&amp;#x6570;&amp;#x636E;&amp;#x4E2D;&amp;#x5339;&amp;#x91">
-<meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif">
+<meta name="twitter:description" content="Objective实现一个 “typeahead”，按下输入字母后搜索缓存数据中匹配的条目并显示。同时高亮搜索的字符串。">
+<meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif">
 
 
 
@@ -102,7 +102,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -202,6 +202,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -287,6 +297,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/JavaScript30-笔记-06-Type-Ahead-👀/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -311,7 +332,7 @@
       
 
       
-        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; &#x201C;typeahead&#x201D;&#xFF0C;&#x6309;&#x4E0B;&#x8F93;&#x5165;&#x5B57;&#x6BCD;&#x540E;&#x641C;&#x7D22;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x4E2D;&#x5339;&#x914D;&#x7684;&#x6761;&#x76EE;&#x5E76;&#x663E;&#x793A;&#x3002;&#x540C;&#x65F6;&#x9AD8;&#x4EAE;&#x641C;&#x7D22;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;<br><a id="more"></a><br><img src="/2017/01/JavaScript30-&#x7B14;&#x8BB0;-06-Type-Ahead-&#x1F440;/typeahead-demo.gif" alt="demo"></p>
+        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>实现一个 “typeahead”，按下输入字母后搜索缓存数据中匹配的条目并显示。同时高亮搜索的字符串。<br><a id="more"></a><br><img src="/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/./JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif" alt="demo"></p>
 <blockquote>
 <ul>
 <li><a href="https://xg-wang.github.io/JavaScript30/06%20-%20Type%20Ahead/">Demo</a></li>
@@ -319,17 +340,17 @@
 </ul>
 </blockquote>
 <h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><ol>
-<li>ajax &#x8BF7;&#x6C42;&#x6570;&#x636E;&#x5E76;&#x7F13;&#x5B58;&#xFF1B;</li>
-<li>&#x6DFB;&#x52A0; keyup &#x548C; change &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x641C;&#x7D22;&#x5339;&#x914D;&#x7684;&#x6761;&#x76EE;&#xFF1B;</li>
-<li>&#x4FEE;&#x6539;&#x6DFB;&#x52A0; suggestions &#x7684; innerHTML&#x3002;</li>
+<li>ajax 请求数据并缓存；</li>
+<li>添加 keyup 和 change 事件监听器，搜索匹配的条目；</li>
+<li>修改添加 suggestions 的 innerHTML。</li>
 </ol>
-<h1 id="Things-Learned"><a href="#Things-Learned" class="headerlink" title="Things Learned"></a>Things Learned</h1><h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch" target="_blank" rel="external"><code>fetch()</code></a>&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x5F15;&#x5165;&#x7684;api&#xFF0C;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#x3002;fetch &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A; url &#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request" target="_blank" rel="external">Request</a> &#x5BF9;&#x8C61;&#x3002;</p>
-<p>&#x7531;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x662F; Promise&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>.then()</code> &#x6765;&#x5904;&#x7406;&#x8FD4;&#x56DE;&#x503C;&#xFF1A;</p>
+<h1 id="Things-Learned"><a href="#Things-Learned" class="headerlink" title="Things Learned"></a>Things Learned</h1><h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch" target="_blank" rel="external"><code>fetch()</code></a>是一个新引入的api，用于获取资源并返回一个 Promise 对象。fetch 可以直接接受一个 url 字符串，也可以接受一个 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request" target="_blank" rel="external">Request</a> 对象。</p>
+<p>由于返回的是 Promise，可以使用 <code>.then()</code> 来处理返回值：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const endpoint = &apos;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&apos;;</div><div class="line">const data = [];</div><div class="line"></div><div class="line">fetch(endpoint)</div><div class="line">  .then(res =&gt; res.json())</div><div class="line">  .then(arr =&gt; data.push(...arr));</div></pre></td></tr></table></figure>
-<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;fetch &#x4E0D;&#x652F;&#x6301; IE &#x548C; Safari&#xFF0C;&#x624B;&#x673A;&#x4E0A;&#x7684;&#x652F;&#x6301;&#x4E5F;&#x4E0D;&#x597D;&#xFF0C;&#x6240;&#x4EE5;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#x8FD8;&#x8981;&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x3002;</p>
-<h2 id="change-vs-keyup"><a href="#change-vs-keyup" class="headerlink" title="change vs keyup"></a>change vs keyup</h2><p>change &#x53D1;&#x751F;&#x7684;&#x65F6;&#x673A;&#x662F;&#x8F93;&#x5165;&#x7684; value &#x6539;&#x53D8;&#x5E76; blur&#xFF0C; keyup&#x5219;&#x662F;&#x952E;&#x76D8;&#x6309;&#x952E;&#x677E;&#x5F00;&#x5373;&#x89E6;&#x53D1;&#x3002;</p>
-<h2 id="typeahead-&#x8BBE;&#x8BA1;"><a href="#typeahead-&#x8BBE;&#x8BA1;" class="headerlink" title="typeahead &#x8BBE;&#x8BA1;"></a>typeahead &#x8BBE;&#x8BA1;</h2><p>&#x641C;&#x7D22;&#x5E76;&#x5229;&#x7528; RegExp &#x66FF;&#x6362;&#x8FD8;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x6211;&#x7528;&#x4E86; <code>filter</code> &#x548C; <code>map</code>&#x51FD;&#x6570;&#x5F0F;&#x4F1A;&#x7B80;&#x7EC3;&#x4E00;&#x70B9;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function update() {</div><div class="line">  const searchStr = this.value.toUpperCase();</div><div class="line">  suggestions.innerHTML = data</div><div class="line">    .filter(place =&gt;</div><div class="line">      place.city.toUpperCase().includes(searchStr) || place.state.toUpperCase().includes(searchStr)</div><div class="line">    )</div><div class="line">    .map(place =&gt; {</div><div class="line">      const regex = new RegExp(this.value, &apos;gi&apos;);</div><div class="line">      const cityName = place.city.replace(regex, `&lt;span class=&quot;hl&quot;&gt;${this.value}&lt;/span&gt;`);</div><div class="line">      const stateName = place.state.replace(regex, `&lt;span class=&quot;hl&quot;&gt;${this.value}&lt;/span&gt;`);</div><div class="line">      return `</div><div class="line">        &lt;li&gt;</div><div class="line">          &lt;span class=&quot;name&quot;&gt;${cityName}, ${stateName}&lt;/span&gt;</div><div class="line">          &lt;span class=&quot;population&quot;&gt;${numberWithCommas(place.population)}&lt;/span&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">      `;</div><div class="line">    })</div><div class="line">    .join(&apos;&apos;);</div><div class="line">}</div></pre></td></tr></table></figure></p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>Wes &#x63D0;&#x4F9B;&#x7684;&#x9ED8;&#x8BA4; CSS &#x6837;&#x5F0F;&#x90FD;&#x5F88;&#x597D;&#x770B;&#xFF0C;&#x8FD9;&#x91CC;&#x5B66;&#x4E60;&#x4E86;&#x4E00;&#x4E0B; suggestions &#x7684;&#x5B9E;&#x73B0;&#xFF1A;&#x5229;&#x7528;&#x5947;&#x5076;&#x5B69;&#x5B50;&#x8BBE;&#x7F6E;&#x53D8;&#x6362;&#x89D2;&#x5EA6;&#x7B49;&#x548C;&#x80CC;&#x666F;&#x7684; <code>linear-gradient</code> &#x5B9E;&#x73B0;&#x6298;&#x53E0;&#x6548;&#x679C;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.suggestions li:nth-child(even) {</div><div class="line">  transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);</div><div class="line">  background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);</div><div class="line">}</div><div class="line">.suggestions li:nth-child(odd) {</div><div class="line">  transform: perspective(100px) rotateX(-3deg) translateY(3px);</div><div class="line">  background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>需要注意的是，fetch 不支持 IE 和 Safari，手机上的支持也不好，所以生产环境中使用还要等待一段时间。</p>
+<h2 id="change-vs-keyup"><a href="#change-vs-keyup" class="headerlink" title="change vs keyup"></a>change vs keyup</h2><p>change 发生的时机是输入的 value 改变并 blur， keyup则是键盘按键松开即触发。</p>
+<h2 id="typeahead-设计"><a href="#typeahead-设计" class="headerlink" title="typeahead 设计"></a>typeahead 设计</h2><p>搜索并利用 RegExp 替换还是很简单的，我用了 <code>filter</code> 和 <code>map</code>函数式会简练一点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function update() &#123;</div><div class="line">  const searchStr = this.value.toUpperCase();</div><div class="line">  suggestions.innerHTML = data</div><div class="line">    .filter(place =&gt;</div><div class="line">      place.city.toUpperCase().includes(searchStr) || place.state.toUpperCase().includes(searchStr)</div><div class="line">    )</div><div class="line">    .map(place =&gt; &#123;</div><div class="line">      const regex = new RegExp(this.value, &apos;gi&apos;);</div><div class="line">      const cityName = place.city.replace(regex, `&lt;span class=&quot;hl&quot;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</div><div class="line">      const stateName = place.state.replace(regex, `&lt;span class=&quot;hl&quot;&gt;$&#123;this.value&#125;&lt;/span&gt;`);</div><div class="line">      return `</div><div class="line">        &lt;li&gt;</div><div class="line">          &lt;span class=&quot;name&quot;&gt;$&#123;cityName&#125;, $&#123;stateName&#125;&lt;/span&gt;</div><div class="line">          &lt;span class=&quot;population&quot;&gt;$&#123;numberWithCommas(place.population)&#125;&lt;/span&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">      `;</div><div class="line">    &#125;)</div><div class="line">    .join(&apos;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>Wes 提供的默认 CSS 样式都很好看，这里学习了一下 suggestions 的实现：利用奇偶孩子设置变换角度等和背景的 <code>linear-gradient</code> 实现折叠效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.suggestions li:nth-child(even) &#123;</div><div class="line">  transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);</div><div class="line">  background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);</div><div class="line">&#125;</div><div class="line">.suggestions li:nth-child(odd) &#123;</div><div class="line">  transform: perspective(100px) rotateX(-3deg) translateY(3px);</div><div class="line">  background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -347,9 +368,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
-          
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
           
         </div>
       
@@ -393,32 +414,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -428,6 +423,16 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -506,19 +511,25 @@ var jiathis_config={
                 <span class="links-of-author-item">
                   <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
                     
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
                     
-                      <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
                     
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/xg.wang" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                 </span>
               
             
@@ -553,6 +564,13 @@ var jiathis_config={
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -600,11 +618,6 @@ var jiathis_config={
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -708,8 +721,30 @@ var jiathis_config={
 
   
 
+    
+      <script id="dsq-count-scr" src="https://xg-wang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://xg-wang.github.io/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/';
+          this.page.identifier = '2017/01/JavaScript30-笔记-06-Type-Ahead-👀/';
+          this.page.title = '[JavaScript30 笔记] 06 - Type Ahead 👀';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xg-wang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
 
 
+
+
+	
 
 
 
@@ -728,20 +763,44 @@ var jiathis_config={
 
 
 
-  
-
-
-
 
 
   
 
+
+
+
+
+  
+
   
 
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

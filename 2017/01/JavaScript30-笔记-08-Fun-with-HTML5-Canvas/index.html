@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript30,JavaScript," />
+  <meta name="keywords" content="JavaScript,JavaScript30," />
 
 
 
@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="Objective&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x5F69;&amp;#x8679;&amp;#x6548;&amp;#x679C;&amp;#x7684; Canvas &amp;#x753B;&amp;#x7B14;&amp;#x3002;">
-<meta name="keywords" content="JavaScript30,JavaScript">
+<meta name="description" content="Objective实现一个简单的彩虹效果的 Canvas 画笔。">
+<meta name="keywords" content="JavaScript,JavaScript30">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JavaScript30 笔记] 08 - Fun with HTML5 Canvas">
 <meta property="og:url" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/index.html">
 <meta property="og:site_name" content="Xingan&#39;s Blog">
-<meta property="og:description" content="Objective&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x5F69;&amp;#x8679;&amp;#x6548;&amp;#x679C;&amp;#x7684; Canvas &amp;#x753B;&amp;#x7B14;&amp;#x3002;">
+<meta property="og:description" content="Objective实现一个简单的彩虹效果的 Canvas 画笔。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif">
+<meta property="og:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif">
 <meta property="og:image" content="https://mdn.mozillademos.org/files/237/Canvas_linejoin.png">
 <meta property="og:image" content="https://mdn.mozillademos.org/files/236/Canvas_linecap.png">
 <meta property="og:updated_time" content="2017-09-26T16:16:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JavaScript30 笔记] 08 - Fun with HTML5 Canvas">
-<meta name="twitter:description" content="Objective&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x5F69;&amp;#x8679;&amp;#x6548;&amp;#x679C;&amp;#x7684; Canvas &amp;#x753B;&amp;#x7B14;&amp;#x3002;">
-<meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif">
+<meta name="twitter:description" content="Objective实现一个简单的彩虹效果的 Canvas 画笔。">
+<meta name="twitter:image" content="https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif">
 
 
 
@@ -104,7 +104,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -204,6 +204,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -289,6 +299,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -313,7 +334,7 @@
       
 
       
-        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5F69;&#x8679;&#x6548;&#x679C;&#x7684; Canvas &#x753B;&#x7B14;&#x3002;<br><a id="more"></a><br><img src="/2017/01/JavaScript30-&#x7B14;&#x8BB0;-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif" alt="demo"></p>
+        <h1 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h1><p>实现一个简单的彩虹效果的 Canvas 画笔。<br><a id="more"></a><br><img src="/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/./JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif" alt="demo"></p>
 <blockquote>
 <ul>
 <li><a href="https://xg-wang.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/">Demo</a></li>
@@ -321,38 +342,38 @@
 </ul>
 </blockquote>
 <h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><ol>
-<li>&#x83B7;&#x53D6; canvas &#x4EE5;&#x53CA;&#x5176; context &#x5E76;&#x8BBE;&#x7F6E;&#x521D;&#x59CB;&#x5C5E;&#x6027;&#xFF1B;</li>
-<li>&#x8BBE;&#x7F6E;&#x9700;&#x8981;&#x7684;4&#x4E2A;&#x4E8B;&#x4EF6;(mouseup, mousedown, mouseout, mousemove)&#x7684;&#x76D1;&#x542C;&#x5668;&#xFF1B;</li>
-<li>&#x5728;&#x753B;&#x56FE;&#x51FD;&#x6570;&#x4E2D;&#x8BBE;&#x7F6E; context &#x7684;&#x72B6;&#x6001;&#x5E76;&#x5B8C;&#x6210;&#x753B;&#x56FE;&#x3002;</li>
+<li>获取 canvas 以及其 context 并设置初始属性；</li>
+<li>设置需要的4个事件(mouseup, mousedown, mouseout, mousemove)的监听器；</li>
+<li>在画图函数中设置 context 的状态并完成画图。</li>
 </ol>
-<h1 id="Details-and-Things-learned"><a href="#Details-and-Things-learned" class="headerlink" title="Details and Things learned"></a>Details and Things learned</h1><p><code>&lt;canvas&gt;</code> &#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x56FE;&#x50CF;&#x7684;&#x7ED8;&#x5236;&#xFF0C;&#x529F;&#x80FD;&#x5341;&#x5206;&#x5F3A;&#x5927;&#x3002;MDN &#x6709;&#x975E;&#x5E38;&#x597D;&#x7684;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank" rel="external">&#x6559;&#x7A0B;</a>&#xFF0C;&#x4ECA;&#x5929;&#x8FD9;&#x4E2A;&#x5C0F; demo &#x53EA;&#x4F7F;&#x7528;&#x4E86; <code>&lt;canvas&gt;</code> &#x7684;&#x7EBF;&#x6BB5;&#x7ED8;&#x5236;&#x7684;&#x4E00;&#x90E8;&#x5206; API&#x3002;</p>
-<h2 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h2><p>&#x9996;&#x5148;&#x8981;&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x4EE5;&#x53CA; context&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const canvas = document.querySelector(&apos;#draw&apos;);</div><div class="line">const ctx = canvas.getContext(&apos;2d&apos;);</div></pre></td></tr></table></figure></p>
-<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981; 2d &#x7684;&#x7ED8;&#x5236;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x7ED8;&#x5236; 3d &#x56FE;&#x5F62;&#xFF0C;&#x53EF;&#x4EE5; <code>getContext(&apos;webgl&apos;)</code>&#x3002;</p>
-<p>&#x7136;&#x540E;&#x8BBE;&#x7F6E;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
+<h1 id="Details-and-Things-learned"><a href="#Details-and-Things-learned" class="headerlink" title="Details and Things learned"></a>Details and Things learned</h1><p><code>&lt;canvas&gt;</code> 可以完成图像的绘制，功能十分强大。MDN 有非常好的<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank" rel="external">教程</a>，今天这个小 demo 只使用了 <code>&lt;canvas&gt;</code> 的线段绘制的一部分 API。</p>
+<h2 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h2><p>首先要获取元素以及 context：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const canvas = document.querySelector(&apos;#draw&apos;);</div><div class="line">const ctx = canvas.getContext(&apos;2d&apos;);</div></pre></td></tr></table></figure></p>
+<p>这里我们只需要 2d 的绘制功能，如果需要绘制 3d 图形，可以 <code>getContext(&#39;webgl&#39;)</code>。</p>
+<p>然后设置几个属性：</p>
 <ul>
-<li><code>ctx.strokeStyle = &apos;hsl(50, 100%, 50%)&apos;;</code> strokeStyle &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E; color, gradient, pattern</li>
-<li><code>ctx.lineJoin = &apos;round&apos;;</code> &#x6307;&#x5B9A;&#x753B;&#x51FA;&#x7684;&#x7EBF;&#x6BB5;&#x5982;&#x4F55;&#x76F8;&#x4EA4;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x9009;&#x9879; <img src="https://mdn.mozillademos.org/files/237/Canvas_linejoin.png" alt="lineJoin"></li>
-<li><code>ctx.lineCap = &apos;round&apos;;</code> &#x6307;&#x5B9A;&#x753B;&#x51FA;&#x7684;&#x7EBF;&#x6BB5;&#x7AEF;&#x70B9;&#x5982;&#x4F55;&#x622A;&#x6B62;&#xFF0C;&#x540C;&#x6837;&#x4E09;&#x79CD;&#x6211;&#x4EEC;&#x9009;&#x62E9; round<br><img src="https://mdn.mozillademos.org/files/236/Canvas_linecap.png" alt="lineCap"></li>
-<li><code>ctx.lineWidth = 10;</code> &#x753B;&#x7EBF;&#x6BB5;&#x7684;&#x5BBD;&#x5EA6;&#xFF0C;in space units&#x3002;</li>
+<li><code>ctx.strokeStyle = &#39;hsl(50, 100%, 50%)&#39;;</code> strokeStyle 可以设置 color, gradient, pattern</li>
+<li><code>ctx.lineJoin = &#39;round&#39;;</code> 指定画出的线段如何相交，提供了三种选项 <img src="https://mdn.mozillademos.org/files/237/Canvas_linejoin.png" alt="lineJoin"></li>
+<li><code>ctx.lineCap = &#39;round&#39;;</code> 指定画出的线段端点如何截止，同样三种我们选择 round<br><img src="https://mdn.mozillademos.org/files/236/Canvas_linecap.png" alt="lineCap"></li>
+<li><code>ctx.lineWidth = 10;</code> 画线段的宽度，in space units。</li>
 </ul>
-<p>&#x7A0B;&#x5E8F;&#x76F8;&#x5173;&#x7684;</p>
+<p>程序相关的</p>
 <ul>
-<li><code>let isDrawing = false;</code> &#x7528;&#x4E8E;&#x6807;&#x660E;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x7ED8;&#x56FE;&#x72B6;&#x6001;&#xFF0C;&#x5728;&#x9F20;&#x6807;&#x6309;&#x4E0B;&#x677E;&#x5F00;&#x79FB;&#x51FA;&#x7ED8;&#x56FE;&#x533A;&#x65F6;&#x66F4;&#x65B0;&#x3002;</li>
-<li><code>let lastX, lastY;</code> &#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x79FB;&#x52A8;&#x9F20;&#x6807;&#x524D;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x753B;&#x51FA;&#x5149;&#x6ED1;&#x66F2;&#x7EBF;&#x3002;</li>
-<li><code>let hue = 0;</code> &#x4F7F;&#x7528; hsl &#x6765;&#x8868;&#x5F81;&#x989C;&#x8272;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x8FDE;&#x7EED;&#x7684;&#x989C;&#x8272;&#x53D8;&#x5316;&#x3002;</li>
-<li><code>let widthGrow = true;</code> &#x7528;&#x6765;&#x8BA9;&#x5BBD;&#x5EA6;&#x6765;&#x56DE;&#x53D8;&#x5927;&#x53D8;&#x5C0F;&#x3002;</li>
+<li><code>let isDrawing = false;</code> 用于标明是否处于绘图状态，在鼠标按下松开移出绘图区时更新。</li>
+<li><code>let lastX, lastY;</code> 记录每次移动鼠标前点的位置，从而可以画出光滑曲线。</li>
+<li><code>let hue = 0;</code> 使用 hsl 来表征颜色，从而可以得到连续的颜色变化。</li>
+<li><code>let widthGrow = true;</code> 用来让宽度来回变大变小。</li>
 </ul>
-<h2 id="&#x753B;&#x56FE;&#x8FC7;&#x7A0B;"><a href="#&#x753B;&#x56FE;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x753B;&#x56FE;&#x8FC7;&#x7A0B;"></a>&#x753B;&#x56FE;&#x8FC7;&#x7A0B;</h2><p>canvas &#x53EF;&#x4EE5;&#x753B;&#x51FA;&#x591A;&#x79CD;&#x56FE;&#x5F62;&#x4EE5;&#x53CA; animation &#x7B49;&#x7279;&#x6548;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x82B1;&#x8DEF;&#x5F84;&#x6839;&#x636E;<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes" target="_blank" rel="external">MDN &#x6559;&#x7A0B;</a> &#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x6B65;&#xFF1A;</p>
+<h2 id="画图过程"><a href="#画图过程" class="headerlink" title="画图过程"></a>画图过程</h2><p>canvas 可以画出多种图形以及 animation 等特效，最简单的花路径根据<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes" target="_blank" rel="external">MDN 教程</a> 分为以下几步：</p>
 <ul>
-<li><code>beginPath()</code> - &#x6E05;&#x7A7A;context&#x7684;&#x6240;&#x6709;&#x72B6;&#x6001;&#x5F00;&#x59CB;&#x65B0;&#x7684;&#x753B;&#x56FE;&#x8FC7;&#x7A0B;&#x3002;</li>
-<li><code>Path methods</code> - &#x64CD;&#x4F5C;&#x753B;&#x56FE;&#x7684;&#x70B9;&#x7684;&#x79FB;&#x52A8;&#xFF0C;&#x5305;&#x62EC; <code>moveTo()</code>, <code>lineTo()</code>, <code>bezierCurveTo()</code>, <code>quadraticCurveTo()</code>&#x7B49;&#x7B49;&#x3002;</li>
-<li><code>closePath()</code> - &#x7ED3;&#x675F; path &#x7684;&#x89C4;&#x5212;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x6307;&#x4EE4;&#x91CD;&#x65B0;&#x5BF9; context &#x8D77;&#x4F5C;&#x7528;&#x3002;</li>
-<li><code>stroke()</code> - &#x753B;&#xFF01;</li>
-<li><code>fill()</code> - &#x586B;&#x5145;&#xFF0C;&#x8FD9;&#x6B21;&#x6CA1;&#x7528;&#x5230;&#x3002;<br>&#x52A0;&#x5165;&#x989C;&#x8272;&#xFF0C;&#x5BBD;&#x5EA6;&#x8C03;&#x6574;&#x540E;&#x7684;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">canvas.addEventListener(&apos;mousemove&apos;, (e) =&gt; {</div><div class="line">  if (!isDrawing) return false;</div><div class="line">  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;</div><div class="line">  ctx.beginPath();</div><div class="line">  ctx.moveTo(lastX, lastY);</div><div class="line">  ctx.lineTo(e.offsetX, e.offsetY);</div><div class="line">  ctx.closePath();</div><div class="line">  ctx.stroke();</div><div class="line">  [lastX, lastY] = [e.offsetX, e.offsetY];</div><div class="line">  hue = (hue + 1) % 360;</div><div class="line">  if (ctx.lineWidth == 66 || ctx.lineWidth == 1) {</div><div class="line">    widthGrow = !widthGrow;</div><div class="line">  }</div><div class="line">  ctx.lineWidth = ctx.lineWidth + (widthGrow ? 1 : -1);</div><div class="line">})</div></pre></td></tr></table></figure>
+<li><code>beginPath()</code> - 清空context的所有状态开始新的画图过程。</li>
+<li><code>Path methods</code> - 操作画图的点的移动，包括 <code>moveTo()</code>, <code>lineTo()</code>, <code>bezierCurveTo()</code>, <code>quadraticCurveTo()</code>等等。</li>
+<li><code>closePath()</code> - 结束 path 的规划，之后的指令重新对 context 起作用。</li>
+<li><code>stroke()</code> - 画！</li>
+<li><code>fill()</code> - 填充，这次没用到。<br>加入颜色，宽度调整后的完整代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">canvas.addEventListener(&apos;mousemove&apos;, (e) =&gt; &#123;</div><div class="line">  if (!isDrawing) return false;</div><div class="line">  ctx.strokeStyle = `hsl($&#123;hue&#125;, 100%, 50%)`;</div><div class="line">  ctx.beginPath();</div><div class="line">  ctx.moveTo(lastX, lastY);</div><div class="line">  ctx.lineTo(e.offsetX, e.offsetY);</div><div class="line">  ctx.closePath();</div><div class="line">  ctx.stroke();</div><div class="line">  [lastX, lastY] = [e.offsetX, e.offsetY];</div><div class="line">  hue = (hue + 1) % 360;</div><div class="line">  if (ctx.lineWidth == 66 || ctx.lineWidth == 1) &#123;</div><div class="line">    widthGrow = !widthGrow;</div><div class="line">  &#125;</div><div class="line">  ctx.lineWidth = ctx.lineWidth + (widthGrow ? 1 : -1);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h2><p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528; <code>[lastX, lastY] = [e.offsetX, e.offsetY];</code>&#xFF0C;&#x6BCF;&#x6B21;&#x753B;&#x56FE;&#x7684;&#x7EBF;&#x4F3C;&#x4E4E;&#x65AD;&#x65AD;&#x7EED;&#x7EED;&#x7684;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x6BCF;&#x6B21;&#x53EA;&#x753B;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x6BB5;&#x7EBF;&#x3002;</p>
-<h2 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h2><p>&#x4EE5;&#x524D;&#x53EA;&#x4F1A; RGBA &#x989C;&#x8272;&#x8868;&#x793A;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A; &#x201C;Hue-saturation-lightness model (HSL)&#x201D; &#x8868;&#x793A;&#x65B9;&#x6CD5;&#x66F4;&#x4E3A;&#x76F4;&#x89C2;&#xFF0C;hue &#x662F; 0 - 360 &#x7684;&#x6570;&#x5B57;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x9971;&#x548C;&#x5EA6;&#x548C;&#x4EAE;&#x5EA6;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x731C;&#x6D4B;&#x51FA;&#x7ED3;&#x679C;&#x7684;&#x989C;&#x8272;&#x3002;<a href="http://hslpicker.com/" target="_blank" rel="external">&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;</a>&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x9884;&#x89C8;&#x9009;&#x53D6;&#x7684;&#x989C;&#x8272;&#x3002;</p>
+<h2 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h2><p>如果不使用 <code>[lastX, lastY] = [e.offsetX, e.offsetY];</code>，每次画图的线似乎断断续续的，原因是每次只画一个点，而不是一段线。</p>
+<h2 id="HSL"><a href="#HSL" class="headerlink" title="HSL"></a>HSL</h2><p>以前只会 RGBA 颜色表示，实际上 “Hue-saturation-lightness model (HSL)” 表示方法更为直观，hue 是 0 - 360 的数字，然后选择饱和度和亮度，可以方便的猜测出结果的颜色。<a href="http://hslpicker.com/" target="_blank" rel="external">这个网站</a>可以方便预览选取的颜色。</p>
 
       
     </div>
@@ -370,9 +391,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
-          
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
           
         </div>
       
@@ -416,32 +437,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -451,6 +446,16 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -529,19 +534,25 @@ var jiathis_config={
                 <span class="links-of-author-item">
                   <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
                     
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
                     
-                      <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
                     
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/xg.wang" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                 </span>
               
             
@@ -576,6 +587,13 @@ var jiathis_config={
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -623,11 +641,6 @@ var jiathis_config={
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -731,8 +744,30 @@ var jiathis_config={
 
   
 
+    
+      <script id="dsq-count-scr" src="https://xg-wang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://xg-wang.github.io/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/';
+          this.page.identifier = '2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/';
+          this.page.title = '[JavaScript30 笔记] 08 - Fun with HTML5 Canvas';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xg-wang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
 
 
+
+
+	
 
 
 
@@ -751,20 +786,44 @@ var jiathis_config={
 
 
 
-  
-
-
-
 
 
   
 
+
+
+
+
+  
+
   
 
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

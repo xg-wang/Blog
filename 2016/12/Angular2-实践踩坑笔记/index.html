@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Template event emission&amp;#x5728;&amp;#x4F20;&amp;#x5B50;component&amp;#x4E8B;&amp;#x4EF6;&amp;#x89E6;&amp;#x53D1;&amp;#x51FD;&amp;#x6570;&amp;#x65F6;(onSelect)=&amp;quot;onSelectStart($event)&amp;quot;&amp;#x5FC5;&amp;#x987B;&amp;#x5199;&amp;#x6210;$event&amp;#xFF0">
+<meta name="description" content="Template event emission在传子component事件触发函数时(onSelect)=&amp;quot;onSelectStart($event)&amp;quot;必须写成$event，然后在ts文件中可以把参数的类型定义为正确的类型。 即使是其他类型的值也要写成完整的$event，不然无法读取。 Routing wildcard在 appRoutes 中我们一般要使用 “wildcard">
 <meta name="keywords" content="Angular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular2 实践踩坑笔记">
 <meta property="og:url" content="https://xg-wang.github.io/2016/12/Angular2-实践踩坑笔记/index.html">
 <meta property="og:site_name" content="Xingan&#39;s Blog">
-<meta property="og:description" content="Template event emission&amp;#x5728;&amp;#x4F20;&amp;#x5B50;component&amp;#x4E8B;&amp;#x4EF6;&amp;#x89E6;&amp;#x53D1;&amp;#x51FD;&amp;#x6570;&amp;#x65F6;(onSelect)=&amp;quot;onSelectStart($event)&amp;quot;&amp;#x5FC5;&amp;#x987B;&amp;#x5199;&amp;#x6210;$event&amp;#xFF0">
+<meta property="og:description" content="Template event emission在传子component事件触发函数时(onSelect)=&amp;quot;onSelectStart($event)&amp;quot;必须写成$event，然后在ts文件中可以把参数的类型定义为正确的类型。 即使是其他类型的值也要写成完整的$event，不然无法读取。 Routing wildcard在 appRoutes 中我们一般要使用 “wildcard">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-02-04T05:20:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular2 实践踩坑笔记">
-<meta name="twitter:description" content="Template event emission&amp;#x5728;&amp;#x4F20;&amp;#x5B50;component&amp;#x4E8B;&amp;#x4EF6;&amp;#x89E6;&amp;#x53D1;&amp;#x51FD;&amp;#x6570;&amp;#x65F6;(onSelect)=&amp;quot;onSelectStart($event)&amp;quot;&amp;#x5FC5;&amp;#x987B;&amp;#x5199;&amp;#x6210;$event&amp;#xFF0">
+<meta name="twitter:description" content="Template event emission在传子component事件触发函数时(onSelect)=&amp;quot;onSelectStart($event)&amp;quot;必须写成$event，然后在ts文件中可以把参数的类型定义为正确的类型。 即使是其他类型的值也要写成完整的$event，不然无法读取。 Routing wildcard在 appRoutes 中我们一般要使用 “wildcard">
 
 
 
@@ -100,7 +100,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -200,6 +200,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -285,6 +295,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/Angular2-实践踩坑笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/12/Angular2-实践踩坑笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -309,23 +330,23 @@
       
 
       
-        <h1 id="Template-event-emission"><a href="#Template-event-emission" class="headerlink" title="Template event emission"></a>Template event emission</h1><p>&#x5728;&#x4F20;&#x5B50;component&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x51FD;&#x6570;&#x65F6;<code>(onSelect)=&quot;onSelectStart($event)&quot;</code>&#x5FC5;&#x987B;&#x5199;&#x6210;<code>$event</code>&#xFF0C;<br>&#x7136;&#x540E;&#x5728;ts&#x6587;&#x4EF6;&#x4E2D;&#x53EF;&#x4EE5;&#x628A;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x4E3A;&#x6B63;&#x786E;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
-<p>&#x5373;&#x4F7F;&#x662F;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x4E5F;&#x8981;&#x5199;&#x6210;&#x5B8C;&#x6574;&#x7684;<code>$event</code>&#xFF0C;&#x4E0D;&#x7136;&#x65E0;&#x6CD5;&#x8BFB;&#x53D6;&#x3002;</p>
-<h1 id="Routing-wildcard"><a href="#Routing-wildcard" class="headerlink" title="Routing wildcard"></a>Routing wildcard</h1><p>&#x5728; <code>appRoutes</code> &#x4E2D;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x8981;&#x4F7F;&#x7528; &#x201C;wildcard&#x201D; &#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x7A7A;&#x767D;&#x9875;&#x7684;&#x5F15;&#x5BFC;&#xFF0C;&#x5BF9;&#x6B64;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x6709;&#x5F88;&#x597D;&#x7684;<a href="https://angular.io/docs/ts/latest/guide/router.html#!#base-href" target="_blank" rel="external">&#x4F8B;&#x5B50;</a>&#x3002;</p>
-<p>&#x4F46;&#x8FD9;&#x91CC;&#x53EA;&#x63D0;&#x5230;&#x4E86;&#x4F46; Routing Module &#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5B9E;&#x9645;&#x4E2D;&#x9047;&#x5230;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x591A;&#x4E2A; Routing Module&#x65F6;&#x9700;&#x8981;import&#x591A;&#x4E2A;Routes&#x3002;<br>&#x4F8B;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">const appRoutes: Routes = [</div><div class="line">  { path: &apos;&apos;, redirectTo: &apos;pages&apos;, pathMatch: &apos;full&apos; },</div><div class="line">  { path: &apos;**&apos;, redirectTo: &apos;pages/overview&apos; }</div><div class="line">];</div><div class="line">// ...</div><div class="line">const pagesRoutes: Routes = [</div><div class="line">  {</div><div class="line">    path: &apos;pages&apos;,</div><div class="line">    component: PagesComponent,</div><div class="line">    children: [</div><div class="line">      { path: &apos;&apos;, redirectTo: &apos;overview&apos;, pathMatch: &apos;full&apos; },</div><div class="line">      { path: &apos;overview&apos;, loadChildren: &apos;app/pages/overview/overview.module#OverviewModule&apos; },</div><div class="line">      { path: &apos;setting&apos;, loadChildren: &apos;app/pages/setting/setting.module#SettingModule&apos; }</div><div class="line">    ]</div><div class="line">  }</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>&#x5F00;&#x53D1;&#x4E2D;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x65E0;&#x8BBA;routerLink&#x5BFC;&#x5411;&#x54EA;&#x91CC;&#x5B9E;&#x9645;&#x90FD;&#x4F1A;&#x88AB;&#x5F15;&#x5BFC;&#x5230;&#x7A7A;&#x767D;&#x9875;&#x3002;<br>&#x5176;&#x539F;&#x56E0;&#x5728;&#x4E8E;<code>app.module.ts</code>&#x4E2D;&#x7684;<code>import</code>&#x91CC;&#x9762;&#x5FC5;&#x987B;&#x5C06;<code>AppRoutingModule</code>&#x653E;&#x5728;&#x5176;&#x4ED6;&#x542B;&#x6709;router&#x7684;Module&#x4E4B;&#x540E;&#xFF0C;&#x8FD9;&#x6837;&#x5176;&#x4ED6;&#x6709;&#x6548;&#x7684;router&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x5148;&#x5339;&#x914D;&#x5230;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@NgModule({</div><div class="line">  //...</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    FormsModule,</div><div class="line">    HttpModule,</div><div class="line">    PagesModule,</div><div class="line">    AppRoutingModule</div><div class="line">  ],</div><div class="line">  //...</div></pre></td></tr></table></figure>
-<h1 id="Typescript-number-from-object"><a href="#Typescript-number-from-object" class="headerlink" title="[Typescript] number from object"></a>[Typescript] number from object</h1><p>&#x5728;&#x83B7;&#x53D6;Chartjs&#x7684;label&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;label&#x662F;String&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x60F3;&#x62FF;&#x5230;&#x6570;&#x5B57;&#x5BF9;&#x5E94;&#x7684;number&#xFF0C;&#x4E8E;&#x662F;&#x4F7F;&#x7528;&#x4E86;<br><code>let label: number = ......label</code><br>&#x4E4B;&#x540E;&#x53D1;&#x751F;&#x4E86;label&#x5B9E;&#x9645;&#x4E0A;&#x8FD8;&#x662F;String&#x7684;&#x95EE;&#x9898;&#xFF0C;debug&#x4E86;&#x597D;&#x4E45;&#x624D;&#x53D1;&#x73B0;&#xFF0C;&#x5C31;&#x8FDE;VSCode&#x7684;tslint&#x90FD;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x4E4B;&#x540E;&#x5728;<code>ts-node</code>&#x4E2D;&#x8BD5;&#x9A8C;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; let a: any = {b: &quot;2&quot;}</div><div class="line">undefined</div><div class="line">&gt; a</div><div class="line">{ b: &apos;2&apos; }</div><div class="line">&gt; let num: number = a.b</div><div class="line">undefined</div><div class="line">&gt; num</div><div class="line">&apos;2&apos;</div></pre></td></tr></table></figure>
-<p>&#x53EF;&#x89C1;number&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x4F7F;&#x7528;any&#x7684;&#x5143;&#x7D20;&#x8D4B;&#x503C;&#x65F6;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#x3002;</p>
-<p>&#x6709;&#x65F6;&#x95F4;&#x8FD8;&#x662F;&#x5E94;&#x8BE5;&#x7CFB;&#x7EDF;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;Typescript&#xFF0C;&#x5927;&#x578B;&#x5DE5;&#x7A0B;&#x4E2D;&#x8FD8;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;&#x3002;</p>
-<h1 id="hidden-vs-ngIf"><a href="#hidden-vs-ngIf" class="headerlink" title="[hidden] vs *ngIf"></a><code>[hidden]</code> vs <code>*ngIf</code></h1><p>&#x5BF9;&#x4E8E;&#x662F;&#x5426;&#x663E;&#x793A;&#x67D0;&#x4E2A; DOM &#x5143;&#x7D20;&#x6216;&#x8005; Component&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x9ED8;&#x8BA4;&#x7684; Directive <code>[hidden]</code> &#x6216;&#x8005;&#x662F; <code>*ngIf</code>&#x3002;<br>&#x4F46;&#x4E24;&#x8005;&#x6709;&#x4E00;&#x4E9B;&#x5DEE;&#x522B;&#x5728;&#x4F7F;&#x7528;&#x4E2D;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
+        <h1 id="Template-event-emission"><a href="#Template-event-emission" class="headerlink" title="Template event emission"></a>Template event emission</h1><p>在传子component事件触发函数时<code>(onSelect)=&quot;onSelectStart($event)&quot;</code>必须写成<code>$event</code>，<br>然后在ts文件中可以把参数的类型定义为正确的类型。</p>
+<p>即使是其他类型的值也要写成完整的<code>$event</code>，不然无法读取。</p>
+<h1 id="Routing-wildcard"><a href="#Routing-wildcard" class="headerlink" title="Routing wildcard"></a>Routing wildcard</h1><p>在 <code>appRoutes</code> 中我们一般要使用 “wildcard” 设置一下空白页的引导，对此官方文档有很好的<a href="https://angular.io/docs/ts/latest/guide/router.html#!#base-href" target="_blank" rel="external">例子</a>。</p>
+<p>但这里只提到了但 Routing Module 的情况，实际中遇到需要配置多个 Routing Module时需要import多个Routes。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">const appRoutes: Routes = [</div><div class="line">  &#123; path: &apos;&apos;, redirectTo: &apos;pages&apos;, pathMatch: &apos;full&apos; &#125;,</div><div class="line">  &#123; path: &apos;**&apos;, redirectTo: &apos;pages/overview&apos; &#125;</div><div class="line">];</div><div class="line">// ...</div><div class="line">const pagesRoutes: Routes = [</div><div class="line">  &#123;</div><div class="line">    path: &apos;pages&apos;,</div><div class="line">    component: PagesComponent,</div><div class="line">    children: [</div><div class="line">      &#123; path: &apos;&apos;, redirectTo: &apos;overview&apos;, pathMatch: &apos;full&apos; &#125;,</div><div class="line">      &#123; path: &apos;overview&apos;, loadChildren: &apos;app/pages/overview/overview.module#OverviewModule&apos; &#125;,</div><div class="line">      &#123; path: &apos;setting&apos;, loadChildren: &apos;app/pages/setting/setting.module#SettingModule&apos; &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>开发中遇到一个问题就是无论routerLink导向哪里实际都会被引导到空白页。<br>其原因在于<code>app.module.ts</code>中的<code>import</code>里面必须将<code>AppRoutingModule</code>放在其他含有router的Module之后，这样其他有效的router就可以被先匹配到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  //...</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    FormsModule,</div><div class="line">    HttpModule,</div><div class="line">    PagesModule,</div><div class="line">    AppRoutingModule</div><div class="line">  ],</div><div class="line">  //...</div></pre></td></tr></table></figure>
+<h1 id="Typescript-number-from-object"><a href="#Typescript-number-from-object" class="headerlink" title="[Typescript] number from object"></a>[Typescript] number from object</h1><p>在获取Chartjs的label时，因为label是String类型，我想拿到数字对应的number，于是使用了<br><code>let label: number = ......label</code><br>之后发生了label实际上还是String的问题，debug了好久才发现，就连VSCode的tslint都没有发现这个问题。</p>
+<p>之后在<code>ts-node</code>中试验了一下，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; let a: any = &#123;b: &quot;2&quot;&#125;</div><div class="line">undefined</div><div class="line">&gt; a</div><div class="line">&#123; b: &apos;2&apos; &#125;</div><div class="line">&gt; let num: number = a.b</div><div class="line">undefined</div><div class="line">&gt; num</div><div class="line">&apos;2&apos;</div></pre></td></tr></table></figure>
+<p>可见number类型的变量使用any的元素赋值时不会触发错误。</p>
+<p>有时间还是应该系统学习一下Typescript，大型工程中还是很有用的。</p>
+<h1 id="hidden-vs-ngIf"><a href="#hidden-vs-ngIf" class="headerlink" title="[hidden] vs *ngIf"></a><code>[hidden]</code> vs <code>*ngIf</code></h1><p>对于是否显示某个 DOM 元素或者 Component，可以用默认的 Directive <code>[hidden]</code> 或者是 <code>*ngIf</code>。<br>但两者有一些差别在使用中需要注意：</p>
 <ul>
-<li>hidden &#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x662F; <code>display: none;</code></li>
-<li>ngIf &#x7684;&#x539F;&#x7406;&#x662F;&#x5BF9; DOM &#x5143;&#x7D20;&#x9500;&#x6BC1;&#x4E0E;&#x6784;&#x9020;</li>
+<li>hidden 的实现原理是 <code>display: none;</code></li>
+<li>ngIf 的原理是对 DOM 元素销毁与构造</li>
 </ul>
-<p>&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x9700;&#x8981; DOM &#x5143;&#x7D20;&#x5B58;&#x5728;&#x7684;&#x4E00;&#x4E9B;&#x90E8;&#x4EF6;&#x5C31;&#x9700;&#x8981;&#x4ED4;&#x7EC6;&#x8003;&#x8651;&#xFF0C;<br>&#x4F8B;&#x5982; Chartjs &#x5728;&#x6784;&#x9020;&#x65F6;&#x9700;&#x8981;&#x8BFB;&#x53D6;&#x7236;&#x5143;&#x7D20;&#x7684; Size&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; hidden &#x6765;&#x63A7;&#x5236;&#x663E;&#x793A;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x6CA1;&#x6709;&#x7ED8;&#x5236;&#x7684;&#x60C5;&#x51B5; - &#x521D;&#x59CB;&#x5316;&#x65F6;&#x7236;&#x5143;&#x7D20;&#x7684;&#x5C3A;&#x5BF8;&#x662F; 0&#x3002;</p>
+<p>所以对于初始化时需要 DOM 元素存在的一些部件就需要仔细考虑，<br>例如 Chartjs 在构造时需要读取父元素的 Size，如果使用 hidden 来控制显示就会出现没有绘制的情况 - 初始化时父元素的尺寸是 0。</p>
 
       
     </div>
@@ -387,32 +408,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -422,6 +417,16 @@ var jiathis_config={
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -500,19 +505,25 @@ var jiathis_config={
                 <span class="links-of-author-item">
                   <a href="https://github.com/xg-wang" target="_blank" title="GitHub">
                     
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/xinganwang" target="_blank" title="Twitter">
                     
-                      <i class="fa fa-fw fa-globe"></i>Twitter</a>
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
                 </span>
               
                 <span class="links-of-author-item">
                   <a href="http://weibo.com/wangxingan" target="_blank" title="Weibo">
                     
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/xg.wang" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
                 </span>
               
             
@@ -547,6 +558,13 @@ var jiathis_config={
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -594,11 +612,6 @@ var jiathis_config={
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -702,8 +715,30 @@ var jiathis_config={
 
   
 
+    
+      <script id="dsq-count-scr" src="https://xg-wang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://xg-wang.github.io/2016/12/Angular2-实践踩坑笔记/';
+          this.page.identifier = '2016/12/Angular2-实践踩坑笔记/';
+          this.page.title = 'Angular2 实践踩坑笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xg-wang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
 
 
+
+
+	
 
 
 
@@ -722,20 +757,44 @@ var jiathis_config={
 
 
 
-  
-
-
-
 
 
   
 
+
+
+
+
+  
+
   
 
   
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
