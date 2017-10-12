@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="Xingan&#39;s Blog">
 <meta property="og:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/fail.png">
-<meta property="og:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/success.png">
-<meta property="og:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/prelight.png">
-<meta property="og:updated_time" content="2017-10-12T06:23:09.725Z">
+<meta property="og:image" content="https://xg-wang.github.io/blog/2017/10/A-practical-guide-to-CORS/fail.png">
+<meta property="og:image" content="https://xg-wang.github.io/blog/2017/10/A-practical-guide-to-CORS/success.png">
+<meta property="og:image" content="https://xg-wang.github.io/blog/2017/10/A-practical-guide-to-CORS/prelight.png">
+<meta property="og:updated_time" content="2017-10-12T16:03:18.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A practical guide to CORS">
 <meta name="twitter:description" content="A practical guide for things you need to know about enabling Cross-Origin Resource Sharing (CORS).">
-<meta name="twitter:image" content="https://xg-wang.github.io/2017/10/A-practical-guide-to-CORS/fail.png">
+<meta name="twitter:image" content="https://xg-wang.github.io/blog/2017/10/A-practical-guide-to-CORS/fail.png">
 
 
 
@@ -204,22 +204,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/blog/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
           </a>
         </li>
       
@@ -348,14 +348,14 @@
 <h2 id="01-CORS-fail"><a href="#01-CORS-fail" class="headerlink" title="01. CORS fail"></a>01. CORS fail</h2><p>First we simply retrieve the data through API running on port 3000:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'http://localhost:3000/'</span>)</div><div class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.text())</div><div class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> responseElement.innerHTML = res)</div><div class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> responseElement.innerHTML = err)</div></pre></td></tr></table></figure>
 <p>Click the button to send the request, you could see the returned response is “TypeError: Failed to fetch”.</p>
-<p><img src="/2017/10/A-practical-guide-to-CORS/../A-practical-guide-to-CORS/fail.png" alt="fail"></p>
+<p><img src="/blog/2017/10/A-practical-guide-to-CORS/fail.png" alt="fail"></p>
 <p>Now open your dev console, you can find the following error:</p>
 <blockquote>
 <p>Failed to load <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a>: No ‘Access-Control-Allow-Origin’ header is present on the requested resource. Origin ‘<a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a>‘ is therefore not allowed access. If an opaque response serves your needs, set the request’s mode to ‘no-cors’ to fetch the resource with CORS disabled.</p>
 </blockquote>
 <p>Because our frontend is hosted on port 3000, and server is running on port 8000, the request from browser is restricted by the <strong>same-origin policy</strong>. To fix it, simply add a header to the response in our server code:·<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: http://localhost:8000</div></pre></td></tr></table></figure></p>
 <p>Now click the button again and you should be able to see the response from server!</p>
-<p><img src="/2017/10/A-practical-guide-to-CORS/../A-practical-guide-to-CORS/success.png" alt="Nails it"></p>
+<p><img src="/blog/2017/10/A-practical-guide-to-CORS/success.png" alt="Nails it"></p>
 <p>Open up the dev server and check the request and response, you can find the <code>Origin: http://localhost:8000</code> header in the request. This is added by the browser automatically.<br>In the response, we have the header we just added: <code>Access-Control-Allow-Origin: http://localhost:8000</code>. This allows our <a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a> to have access to the API endpoint. You may also specify “*” as a wildcard, thereby allowing any origin to access the resource.</p>
 <h2 id="02-preflight"><a href="#02-preflight" class="headerlink" title="02. preflight"></a>02. preflight</h2><p>This is not the end of story, let’s try to add some header to our request as <code>&#39;Content-Type&#39;: &#39;application/json&#39;</code>.</p>
 <p>Send the request again and it fails. The console has the following error:</p>
@@ -366,7 +366,7 @@
 <p>Together with the <code>Origin: &lt;origin&gt;</code> header they are all we need for the request. In any access control request, the <code>Origin</code> header is always sent.<br>And <code>Access-Control-Request-Headers</code> might also be a comma separated array.</p>
 <p>These headers are used to tell the server what the following actual CORS request contains. Here we are asking the server to allow the <code>Content-Type</code> header and <code>GET</code> method.</p>
 <p>After the browser receives the legit preflight response, the actual CORS request is sent.</p>
-<p><img src="/2017/10/A-practical-guide-to-CORS/../A-practical-guide-to-CORS/prelight.png" alt="MDN example for preflight request"></p>
+<p><img src="/blog/2017/10/A-practical-guide-to-CORS/prelight.png" alt="MDN example for preflight request"></p>
 <blockquote>
 <p>MDN example for preflight request</p>
 </blockquote>
