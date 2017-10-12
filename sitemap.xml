@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xg-wang.github.io/blog/2017/01/JavaScript30-%E7%AC%94%E8%AE%B0-01-JavaScript-Drum-Kit/</loc>
+    
+    <lastmod>2017-10-12T07:00:48.724Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xg-wang.github.io/blog/2017/10/A-practical-guide-to-CORS/</loc>
     
     <lastmod>2017-10-12T06:23:09.725Z</lastmod>
@@ -66,13 +73,6 @@
   
   <url>
     <loc>https://xg-wang.github.io/blog/2016/12/Hello-Hexo/</loc>
-    
-    <lastmod>2017-01-21T18:23:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xg-wang.github.io/blog/2017/01/JavaScript30-%E7%AC%94%E8%AE%B0-01-JavaScript-Drum-Kit/</loc>
     
     <lastmod>2017-01-21T18:23:23.000Z</lastmod>
     
