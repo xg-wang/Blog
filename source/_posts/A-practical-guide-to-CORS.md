@@ -1,7 +1,7 @@
 ---
 title: A practical guide to CORS
 date: 2017-10-08 23:47:06
-tags:
+tags: [web, JavaScript]
 ---
 
 A practical guide for things you need to know about enabling [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/).
