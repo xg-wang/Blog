@@ -7,7 +7,7 @@ tags: [JavaScript30, JavaScript]
 # Objective
 利用 CSS Variable 和 JS 进行样式属性的控制。
 <!-- more -->
-![Demo](JavaScript30-笔记-03-CSS-Variables/js30-03.gif)
+![Demo](/2017/01/JavaScript30-笔记-03-CSS-Variables/js30-03.gif)
 
 > - [Demo](https://xg-wang.github.io/JavaScript30/03%20-%20CSS%20Variables/)
 > - [Source](https://github.com/xg-wang/JavaScript30/blob/master/03%20-%20CSS%20Variables/index.html)

@@ -7,7 +7,7 @@ tags: [JavaScript30, JavaScript]
 # Objective
 利用 CSS 和 JS 实现一个时钟界面，每秒更新三个指针的位置。
 <!-- more -->
-![Demo](JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
+![Demo](/2017/01/JavaScript30-笔记-02-JS-CSS-Clock/js30-02.gif)
 
 > - [Demo](https://xg-wang.github.io/JavaScript30/02%20-%20JS%20+%20CSS%20Clock)
 > - [Source](https://github.com/xg-wang/JavaScript30/blob/master/02%20-%20JS%20%2B%20CSS%20Clock/index.html)

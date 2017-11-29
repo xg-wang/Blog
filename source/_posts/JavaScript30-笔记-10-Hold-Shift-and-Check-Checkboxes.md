@@ -7,7 +7,7 @@ tags: [JavaScript, JavaScript30]
 # Objective
 实现按住 Shift 键点击 list 时批量选中。
 <!-- more -->
-![demo](./JavaScript30-笔记-10-Hold-Shift-and-Check-Checkboxes/shiftcheck.gif)
+![demo](/2017/02/JavaScript30-笔记-10-Hold-Shift-and-Check-Checkboxes/shiftcheck.gif)
 
 > - [Demo](https://xg-wang.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/)
 > - [Source](https://github.com/xg-wang/JavaScript30/blob/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)

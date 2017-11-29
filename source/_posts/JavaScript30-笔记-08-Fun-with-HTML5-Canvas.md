@@ -7,7 +7,7 @@ tags: [JavaScript, JavaScript30]
 # Objective
 实现一个简单的彩虹效果的 Canvas 画笔。
 <!-- more -->
-![demo](./JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif)
+![demo](/2017/01/JavaScript30-笔记-08-Fun-with-HTML5-Canvas/canvas-rainbow.gif)
 
 > - [Demo](https://xg-wang.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/)
 > - [Source](https://github.com/xg-wang/JavaScript30/blob/master/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)

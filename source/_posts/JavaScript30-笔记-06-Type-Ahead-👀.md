@@ -7,7 +7,7 @@ tags: [JavaScript, JavaScript30]
 # Objective
 实现一个 "typeahead"，按下输入字母后搜索缓存数据中匹配的条目并显示。同时高亮搜索的字符串。
 <!-- more -->
-![demo](./JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif)
+![demo](/2017/01/JavaScript30-笔记-06-Type-Ahead-👀/typeahead-demo.gif)
 
 > - [Demo](https://xg-wang.github.io/JavaScript30/06%20-%20Type%20Ahead/)
 > - [Source](https://github.com/xg-wang/JavaScript30/blob/master/06%20-%20Type%20Ahead/index.html)

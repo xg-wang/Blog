@@ -7,7 +7,7 @@ tags: [JavaScript30, JavaScript]
 # Objective
 利用 Flexbox 实现一个 Gallery，点击一个 panel 后可放大，并飞入上下的文字。
 <!-- more -->
-![demo](./JavaScript30-笔记-05-Flex-Panel-Gallery/05-Flex-Panel-Gallery.gif)
+![demo](/2017/01/JavaScript30-笔记-05-Flex-Panel-Gallery/05-Flex-Panel-Gallery.gif)
 
 > - [Demo](https://xg-wang.github.io/JavaScript30/05%20-%20Flex%20Panel%20Gallery/)
 > - [Source](https://github.com/xg-wang/JavaScript30/blob/master/05%20-%20Flex%20Panel%20Gallery/index.html)
