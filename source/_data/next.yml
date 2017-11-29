@@ -436,7 +436,7 @@ han: false
 # Disqus
 disqus:
   enable: true
-  shortname: xg-wang
+  shortname: blog-xgwang
   count: true
 
 # Hypercomments

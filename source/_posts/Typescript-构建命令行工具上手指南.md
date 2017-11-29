@@ -172,6 +172,8 @@ Options:
 
 获取参数后就可以 import 你写的业务代码进行操作，这里略去，可以在 [Github](https://github.com/xg-wang/pruner-cli/blob/master/src/Pruner.ts) 看一下例子。
 
+之后我们可以通过 `npm publis` 发布后 `npm install -g pruner-cli` 下载安装工具之后执行 `prune` 直接调用。
+
 # Async Test
 
 测试代码同样需要使用 TypeScript 以及 async/await。选用 mocha 进行 BDD 风格的测试。chai 是一个 assertions 库，搭配使用效果佳。
