@@ -2,7 +2,7 @@
 {
   "title": "Thomas Wang's blog",
   "url": "https://xgwang.me",
-  "description": "Personal blog of xgwang.me",
+  "description": "Notes, thoughts and learnings.",
   "feed": {
     "subtitle": "Notes, thoughts and learnings.",
     "filename": "feed.xml",

@@ -1,10 +1,15 @@
 ---
 layout: layouts/post.njk
-title: About Me
-templateClass: tmpl-post
 eleventyNavigation:
-  key: About Me
-  order: 3
+  key: About
+  order: 2
 ---
 
-👋I'm Thomas Wang, I write about programming and other thoughts in this blog.
+👋 I'm a software engineer working at LinkedIn Web Infra.
+
+You can find me at:
+
+* [LinkedIn](https://www.linkedin.com/in/xinganwang/)
+* [GitHub](https://github.com/xg-wang)
+* [Twitter](https://twitter.com/xinganwang)
+* [hi@xgwang.me](mailto:hi@xgwang.me)

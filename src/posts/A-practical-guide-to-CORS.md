@@ -8,7 +8,7 @@ layout: layouts/post.njk
 
 A practical guide for things you need to know about enabling [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/).
 
-# Why we need CORS
+## Why we need CORS
 Web pages are under the restrictions of **same-origin policy**, which means scripts contained in a web page cannot access data in another page with different _origin_. For example, `http://www.example.com:81/dir/other.html` cannot be accessed by `http://www.example.com/dir/page.html` because the port is different. You can find more detailed explanations on [wiki](https://en.wikipedia.org/wiki/Same-origin_policy#Origin_determination_rules).
 
 However, there are some cases we want to enable cross-origin resource sharing.
@@ -16,7 +16,7 @@ However, there are some cases we want to enable cross-origin resource sharing.
 - You would like to provide a public API to be consumed by any client, or clients specified by a whitelist.
 - When developing, your frontend web app is running on a different port from your backend server.
 
-# Demo setup
+## Demo setup
 So let's get started. I've prepared a simple [KOA](http://koajs.com/) server to demonstrate the idea. You can find the demo on [Github](https://github.com/xg-wang/cors-guide) and follow the tag for each stage.
 
 ```bash
@@ -28,7 +28,7 @@ npm start
 
 The server runs at http://localhost:3000/ and frontend runs at http://localhost:8000/
 
-## 01. CORS fail
+### 01. CORS fail
 First we simply retrieve the data through API running on port 3000:
 
 ```javascript
@@ -57,13 +57,13 @@ Now click the button again and you should be able to see the response from serve
 Open up the dev server and check the request and response, you can find the `Origin: http://localhost:8000` header in the request. This is added by the browser automatically.
 In the response, we have the header we just added: `Access-Control-Allow-Origin: http://localhost:8000`. This allows our http://localhost:8000 to have access to the API endpoint. You may also specify "*" as a wildcard, thereby allowing any origin to access the resource.
 
-## 02. preflight
+### 02. Preflight
 This is not the end of story, let's try to add some header to our request as `'Content-Type': 'application/json'`.
 
 Send the request again and it fails. The console has the following error:
 > Failed to load http://localhost:3000/: Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.
 
-### What is a preflighted request/response?
+#### What is a preflighted request/response?
 Open up the dev tools network tab, the request sent by the browser is not the request we created by JavaScript. It is called a preflighted request and has the following Headers:
 ```text
 Request Method: OPTIONS
@@ -80,7 +80,7 @@ After the browser receives the legit preflight response, the actual CORS request
 ![MDN example for preflight request](/img/A-practical-guide-to-CORS/prelight.png)
 > MDN example for preflight request
 
-### Why there was no preflight request?
+#### Why there was no preflight request?
 In the previous section, our request went well and there is no CORS preflight - it is called a 'Simple Request'.
 MDN has a comprehensive [description](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Simple_requests) about this.
 To summarize, a simple request is a GET|HEAD|POST method, and only contains '[CORS-safelisted request-header](https://fetch.spec.whatwg.org/#cors-safelisted-request-header)'
@@ -102,7 +102,7 @@ To summarize, a simple request is a GET|HEAD|POST method, and only contains '[CO
 
 By CORS spec, a simple request won't trigger the preflight request.
 
-### How to fix it?
+#### How to fix it?
 To grant access to the resource, we need to set corresponding headers in the response for the preflight request.
 ```text
 Access-Control-Allow-Origin: http://localhost:8000
@@ -120,7 +120,7 @@ There are 3 more access control headers you can set:
 - `Access-Control-Max-Age: <delta-seconds>` indicates how long the results of a preflight request can be cached.
 - `Access-Control-Allow-Credentials` will be discussed in next section.
 
-## 03. credentials
+### 03. Credentials
 By default, in cross-site [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) or [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) invocations, browsers will not send credentials ([HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) and [HTTP Authentication information](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)).
 But they both have option flag to set. Take Fetch for example, there is a `credentials` option:
 > The request credentials you want to use for the request: omit, same-origin, or include. To automatically send cookies for the current domain, this option must be provided. Starting with Chrome 50, this property also takes a FederatedCredential instance or a PasswordCredential instance.
@@ -139,7 +139,7 @@ fetch('http://localhost:3000/', {
 The following error will popup in your dev console:
 > Failed to load http://localhost:3000/: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Credentials' header in the response is '' which must be 'true' when the request's credentials mode is 'include'. Origin 'http://localhost:8000' is therefore not allowed access.
 
-### fix
+#### Fix
 Remember the `Access-Control-Allow-Credentials`?
 Set this header in both preflight and request: `Access-Control-Allow-Credentials: true`. Refresh, send again and it succeeds.
 
@@ -152,13 +152,13 @@ Some more things to notice:
 
 A more persuasive reason can be found [here](https://github.com/rs/cors/issues/10).
 
-### one more thing
+#### One more thing
 In the Fetch API, you can set [Request.mode](https://developer.mozilla.org/en-US/docs/Web/API/Request/mode)
 > The mode read-only property of the Request interface contains the mode of the request (e.g., cors, no-cors, same-origin, or navigate.) This is used to determine if cross-origin requests lead to valid responses, and which properties of the response are readable.
 
 Set this to 'cors' when sending CORS request, more details can be found in the [spec](https://fetch.spec.whatwg.org/#dom-request).
 
-# Summary
+## Summary
 In this post we discussed the use cases of CORS and how we can enable it by building a simple API step by step. You can find the full demo on [Github](https://github.com/xg-wang/cors-guide).
 
 For conclusion, to enable CORS for a general CORS request, you need to add the following headers:

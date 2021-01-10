@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    content: ['./src/**/*.html']
+    content: ["_site/**/*.html"],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -8,4 +8,4 @@ module.exports = {
   },
   variants: {},
   plugins: [],
-}
+};

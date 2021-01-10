@@ -1,33 +1,39 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title or metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-a11y-dark.css' | url }}">
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
-  </head>
-  <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
 
-      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or metadata.title }}</title>
+  <meta name="description" content="{{ description or metadata.description }}">
+  <link rel="stylesheet" href="/css/style.css?v={% version %}">
+  <link rel="stylesheet" href="/css/prism-a11y-dark.css">
+  <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+  <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+</head>
+
+<body>
+  <header class="max-w-3xl px-4 mx-auto mt-6 text-center">
+    <h1 class="text-3xl font-semibold"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+    <p class="italic">{{ metadata.description }}</p>
+
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <ul class="flex justify-center max-w-md mx-auto mt-6">
       {%- for entry in collections.all | eleventyNavigation %}
-        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+      <li class="mx-3 hover:underline{% if entry.url == page.url %} underline{% endif %}"><a
+          href="{{ entry.url | url }}">{{ entry.title }}</a></li>
       {%- endfor %}
-      </ul>
-    </header>
+    </ul>
+    <hr>
+  </header>
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-      {{ content | safe }}
-    </main>
+  <main class="max-w-3xl mx-auto mt-6">
+    {{ content | safe }}
+  </main>
 
-    <footer></footer>
+  <footer></footer>
 
-    <!-- Current page: {{ page.url | url }} -->
-  </body>
+  <!-- Current page: {{ page.url | url }} -->
+</body>
+
 </html>
