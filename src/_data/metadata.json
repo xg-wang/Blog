@@ -1,0 +1,21 @@
+
+{
+  "title": "Thomas Wang's blog",
+  "url": "https://xgwang.me",
+  "description": "Personal blog of xgwang.me",
+  "feed": {
+    "subtitle": "Notes, thoughts and learnings.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://xgwang.me"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://xgwang.me/feed/feed.json"
+  },
+  "author": {
+    "name": "Thomas Wang",
+    "email": "hi@xgwang.me",
+    "url": "https://xgwang.me/about/"
+  }
+}
